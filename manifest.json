@@ -1,6 +1,26 @@
 {
+  "src/lib/blainesquiz1.png": {
+    "file": "_app/immutable/assets/blainesquiz1-08519d31.png",
+    "src": "src/lib/blainesquiz1.png"
+  },
+  "src/lib/images/blainesquiz3.png": {
+    "file": "_app/immutable/assets/blainesquiz3-f5689908.png",
+    "src": "src/lib/images/blainesquiz3.png"
+  },
+  "src/lib/images/pokemon_diamond_button_1_pressed.png": {
+    "file": "_app/immutable/assets/pokemon_diamond_button_1_pressed-03e5c481.png",
+    "src": "src/lib/images/pokemon_diamond_button_1_pressed.png"
+  },
+  "src/lib/images/pokemon_diamond_button_1.png": {
+    "file": "_app/immutable/assets/pokemon_diamond_button_1-701bbc7f.png",
+    "src": "src/lib/images/pokemon_diamond_button_1.png"
+  },
+  "src/lib/images/pokemon_diamond_button_1_active.png": {
+    "file": "_app/immutable/assets/pokemon_diamond_button_1_active-abc5adfe.png",
+    "src": "src/lib/images/pokemon_diamond_button_1_active.png"
+  },
   ".svelte-kit/runtime/client/start.js": {
-    "file": "_app/immutable/start-47fd5f8a.js",
+    "file": "_app/immutable/start-6e9033b2.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -22,7 +42,12 @@
       "_index-a37fce7b.js"
     ],
     "css": [
-      "_app/immutable/assets/__layout-34ae769b.css"
+      "_app/immutable/assets/__layout-04811fad.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/pokemon_diamond_button_1-701bbc7f.png",
+      "_app/immutable/assets/pokemon_diamond_button_1_pressed-03e5c481.png",
+      "_app/immutable/assets/pokemon_diamond_button_1_active-abc5adfe.png"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
@@ -35,7 +60,7 @@
     ]
   },
   "src/routes/guess/random.svelte": {
-    "file": "_app/immutable/pages/guess/random.svelte-75f98d56.js",
+    "file": "_app/immutable/pages/guess/random.svelte-c73902ab.js",
     "src": "src/routes/guess/random.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -47,7 +72,7 @@
     ]
   },
   "src/routes/index.svelte": {
-    "file": "_app/immutable/pages/index.svelte-5d9eedc6.js",
+    "file": "_app/immutable/pages/index.svelte-cc8f253a.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -56,21 +81,25 @@
     ],
     "css": [
       "_app/immutable/assets/index-4949549e.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/blainesquiz1-08519d31.png",
+      "_app/immutable/assets/blainesquiz3-f5689908.png"
     ]
   },
   "_index-a37fce7b.js": {
     "file": "_app/immutable/chunks/index-a37fce7b.js"
   },
   "src/routes/__layout.css": {
-    "file": "_app/immutable/assets/__layout-34ae769b.css",
+    "file": "_app/immutable/assets/__layout-04811fad.css",
     "src": "src/routes/__layout.css"
-  },
-  "src/routes/guess/random.css": {
-    "file": "_app/immutable/assets/random-67434652.css",
-    "src": "src/routes/guess/random.css"
   },
   "src/routes/index.css": {
     "file": "_app/immutable/assets/index-4949549e.css",
     "src": "src/routes/index.css"
+  },
+  "src/routes/guess/random.css": {
+    "file": "_app/immutable/assets/random-67434652.css",
+    "src": "src/routes/guess/random.css"
   }
 }
