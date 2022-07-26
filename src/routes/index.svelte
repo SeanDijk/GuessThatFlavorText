@@ -1,6 +1,6 @@
 <script>
-    import quizmaster from '/images/blainesquiz1.png'
-    import randomGuess from '/images/blainesquiz3.png'
+    import quizmaster from '$lib/images/blainesquiz1.png'
+    import randomGuess from '$lib/images/blainesquiz3.png'
 </script>
 
 <style>

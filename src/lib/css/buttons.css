@@ -4,7 +4,7 @@
     padding: 0.5em 0.3em 0.3em 0.3em;
 
     border: 1.25em solid;
-    border-image-source: url('/images/pokemon_diamond_button_1.png');
+    border-image-source: url('$lib/images/pokemon_diamond_button_1.png');
     border-image-slice: 25% fill;
 
     background-color: #a2616100;
@@ -23,9 +23,9 @@
 }
 
 .button-red:hover {
-    border-image-source: url('/images/pokemon_diamond_button_1_pressed.png');
+    border-image-source: url('$lib/images/pokemon_diamond_button_1_pressed.png');
 }
 
 .button-red:active {
-    border-image-source: url('/images/pokemon_diamond_button_1_active.png');
+    border-image-source: url('$lib/images/pokemon_diamond_button_1_active.png');
 }

@@ -1,5 +1,5 @@
 <script>
-    import pokeball from '/images/pokeball.png'
+    import pokeball from '$lib/images/pokeball.png'
 </script>
 <style>
     .loading {
