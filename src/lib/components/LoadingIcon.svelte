@@ -1,6 +1,3 @@
-<script>
-    import pokeball from '/images/pokeball.png'
-</script>
 <style>
     .loading {
         position: absolute;
@@ -34,4 +31,4 @@
     }
 </style>
 
-<img src="{pokeball}" class="loading">
+<img src="/images/pokeball.png" class="loading">

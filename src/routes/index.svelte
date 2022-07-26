@@ -1,6 +1,4 @@
 <script>
-    import quizmaster from '/images/blainesquiz1.png'
-    import randomGuess from '/images/blainesquiz3.png'
 </script>
 
 <style>
@@ -10,7 +8,7 @@
 </style>
 
 <div class="column image-button-box">
-    <img alt="Quizmaster image" src={quizmaster}/>
+    <img alt="Quizmaster image" src="/images/blainesquiz1.png"/>
     <a class="button-red">
         I am the quizmaster
     </a>
@@ -18,7 +16,7 @@
 
 
 <div class="column image-button-box">
-    <img alt="Guess a card image" src={randomGuess}/>
+    <img alt="Guess a card image" src="/images/blainesquiz3.png"/>
     <a href="/guess/random" class="button-red">
         Guess a random card
     </a>
