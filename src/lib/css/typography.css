@@ -1,0 +1,17 @@
+/*This does not work. Font in app.html for now*/
+/*@font-face {*/
+/*    font-family: 'Pokemon Fire Red';*/
+/*    src: url('$app/paths/assets/fonts/pokemon_fire_red.woff') format("woff"),*/
+/*    url('$app/paths/assets/fonts/pokemon_fire_red.ttf') format("truetype");*/
+/*}*/
+
+
+:root {
+    font-size: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+    :root {
+        font-size: 32px ;
+    }
+}

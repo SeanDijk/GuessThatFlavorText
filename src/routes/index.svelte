@@ -7,20 +7,20 @@
     .image-button-box {
         max-width: 800px;
     }
-
-    .image-button-box > button {
-        font-size: 2em;
-    }
 </style>
 
 <div class="column image-button-box">
     <img alt="Quizmaster image" src={quizmaster}/>
-    <button>I am the quizmaster</button>
+    <a class="button-red">
+        I am the quizmaster
+    </a>
 </div>
 
 
 <div class="column image-button-box">
     <img alt="Guess a card image" src={randomGuess}/>
-    <button>Guess a random card</button>
+    <a href="/guess/random" class="button-red">
+        Guess a random card
+    </a>
 </div>
 
