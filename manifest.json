@@ -1,0 +1,76 @@
+{
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "_app/immutable/start-47fd5f8a.js",
+    "src": ".svelte-kit/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_index-a37fce7b.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      ".svelte-kit/runtime/components/error.svelte",
+      "src/routes/guess/random.svelte",
+      "src/routes/index.svelte"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "_app/immutable/pages/__layout.svelte-50c3c904.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a37fce7b.js"
+    ],
+    "css": [
+      "_app/immutable/assets/__layout-34ae769b.css"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "_app/immutable/error.svelte-a37d0eb5.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a37fce7b.js"
+    ]
+  },
+  "src/routes/guess/random.svelte": {
+    "file": "_app/immutable/pages/guess/random.svelte-75f98d56.js",
+    "src": "src/routes/guess/random.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a37fce7b.js"
+    ],
+    "css": [
+      "_app/immutable/assets/random-67434652.css"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "_app/immutable/pages/index.svelte-5d9eedc6.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a37fce7b.js"
+    ],
+    "css": [
+      "_app/immutable/assets/index-4949549e.css"
+    ]
+  },
+  "_index-a37fce7b.js": {
+    "file": "_app/immutable/chunks/index-a37fce7b.js"
+  },
+  "src/routes/__layout.css": {
+    "file": "_app/immutable/assets/__layout-34ae769b.css",
+    "src": "src/routes/__layout.css"
+  },
+  "src/routes/guess/random.css": {
+    "file": "_app/immutable/assets/random-67434652.css",
+    "src": "src/routes/guess/random.css"
+  },
+  "src/routes/index.css": {
+    "file": "_app/immutable/assets/index-4949549e.css",
+    "src": "src/routes/index.css"
+  }
+}
