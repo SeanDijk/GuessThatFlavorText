@@ -1,30 +1,31 @@
 {
-  "src/lib/blainesquiz1.png": {
+  "src/lib/images/blainesquiz1.png": {
     "file": "_app/immutable/assets/blainesquiz1-08519d31.png",
-    "src": "src/lib/blainesquiz1.png"
+    "src": "src/lib/images/blainesquiz1.png"
   },
   "src/lib/images/blainesquiz3.png": {
     "file": "_app/immutable/assets/blainesquiz3-f5689908.png",
     "src": "src/lib/images/blainesquiz3.png"
   },
-  "src/lib/images/pokemon_diamond_button_1_pressed.png": {
-    "file": "_app/immutable/assets/pokemon_diamond_button_1_pressed-03e5c481.png",
-    "src": "src/lib/images/pokemon_diamond_button_1_pressed.png"
-  },
   "src/lib/images/pokemon_diamond_button_1.png": {
     "file": "_app/immutable/assets/pokemon_diamond_button_1-701bbc7f.png",
     "src": "src/lib/images/pokemon_diamond_button_1.png"
+  },
+  "src/lib/images/pokemon_diamond_button_1_pressed.png": {
+    "file": "_app/immutable/assets/pokemon_diamond_button_1_pressed-03e5c481.png",
+    "src": "src/lib/images/pokemon_diamond_button_1_pressed.png"
   },
   "src/lib/images/pokemon_diamond_button_1_active.png": {
     "file": "_app/immutable/assets/pokemon_diamond_button_1_active-abc5adfe.png",
     "src": "src/lib/images/pokemon_diamond_button_1_active.png"
   },
   ".svelte-kit/runtime/client/start.js": {
-    "file": "_app/immutable/start-6e9033b2.js",
+    "file": "_app/immutable/start-8d9269ef.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-a37fce7b.js"
+      "_index-a37fce7b.js",
+      "_paths-b9644fda.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
@@ -72,12 +73,13 @@
     ]
   },
   "src/routes/index.svelte": {
-    "file": "_app/immutable/pages/index.svelte-cc8f253a.js",
+    "file": "_app/immutable/pages/index.svelte-6cd2e148.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-a37fce7b.js"
+      "_index-a37fce7b.js",
+      "_paths-b9644fda.js"
     ],
     "css": [
       "_app/immutable/assets/index-4949549e.css"
@@ -89,6 +91,9 @@
   },
   "_index-a37fce7b.js": {
     "file": "_app/immutable/chunks/index-a37fce7b.js"
+  },
+  "_paths-b9644fda.js": {
+    "file": "_app/immutable/chunks/paths-b9644fda.js"
   },
   "src/routes/__layout.css": {
     "file": "_app/immutable/assets/__layout-04811fad.css",
