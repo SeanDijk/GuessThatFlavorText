@@ -1,3 +1,6 @@
+<script>
+    import { base } from '$app/paths';
+</script>
 <style>
     @import url('$lib/css/buttons.css');
     @import url('$lib/css/util.css');
@@ -19,7 +22,7 @@
 
 </style>
 <header>
-    <a href="/" class="link">Guess That Flavor Text</a>
+    <a href="{base}" class="link">Guess That Flavor Text</a>
 </header>
 <slot>
 

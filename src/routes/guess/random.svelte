@@ -111,11 +111,14 @@
             </Lifeline>
         </div>
 
+        <details>
+            <summary>Answer</summary>
 
-        <fieldset>
-            <legend>Answer</legend>
-            <img src="{data.images.large}" class="answer-card">
-        </fieldset>
+            <fieldset>
+                <legend>Answer</legend>
+                <img src="{data.images.large}" class="answer-card">
+            </fieldset>
+        </details>
     {/if}
 
 </div>

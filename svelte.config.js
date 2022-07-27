@@ -9,10 +9,12 @@ const config = {
         adapter: adapter({
             pages: 'build',
             assets: 'build',
-            fallback: 'index.html'
         }),
         paths: {
             base: dev ? '' : '/GuessThatFlavorText',
+        },
+        prerender: {
+            default: true
         }
     }
 };
