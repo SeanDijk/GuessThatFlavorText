@@ -1,4 +1,4 @@
-.button-red {
+.button-red, .button-red-small {
     box-sizing: border-box;
     text-decoration: none;
     padding: 0.5em 0.3em 0.3em 0.3em;
@@ -22,10 +22,19 @@
     text-transform: uppercase;
 }
 
-.button-red:hover {
+.button-red-small {
+    /*padding: .125em 0.075em 0.075em 0.075em;*/
+    padding: 0.25em 0.15em 0.15em 0.15em;
+
+    border-width: 1em;
+    font-size: 1em;
+
+}
+
+.button-red:hover, .button-red-small:hover {
     border-image-source: url('$lib/images/pokemon_diamond_button_1_pressed.png');
 }
 
-.button-red:active {
+.button-red:active, .button-red-small:active {
     border-image-source: url('$lib/images/pokemon_diamond_button_1_active.png');
 }

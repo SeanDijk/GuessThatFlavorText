@@ -1,42 +1,40 @@
 <script>
     import LoadingIcon from '$lib/components/LoadingIcon.svelte'
     import Lifeline from '$lib/components/Lifeline.svelte'
-    import PokemonService from '$lib/PokemonService.js'
+    import Result from '$lib/components/Result.svelte'
+    import Modal from '$lib/components/Modal.svelte'
+    import PokemonApiService from '$lib/js/PokemonApiService.js'
+    import GuessService from '$lib/js/GuessService.js'
 
     let givenAnswer = "";
-    let data = null
-
-    PokemonService.getRandomCard().then(value => {
+    let data = null;
+    let guessedCorrectly = false;
+    let resultDialog
+    PokemonApiService.getRandomCard().then(value => {
         data = value
     })
 
-    function withoutAccents(str) {
-        return str.normalize('NFD').replace(/\p{Diacritic}/gu, "");
-    }
-
     function checkAnswer() {
-        return withoutAccents(data.name.toLowerCase()) === withoutAccents(givenAnswer.toLowerCase())
+        return GuessService.matchesAnswer(givenAnswer, data.name)
     }
 
     function processAnswer() {
-        if (checkAnswer()) {
-
-        } else {
-
-        }
+        guessedCorrectly = checkAnswer()
+        resultDialog.showModal()
     }
 </script>
 
 <style>
+    .container {
+        margin: 16px;
+    }
+
     .flavor-text {
         font-size: 1.5em;
-        /*font-style: italic;*/
         text-align: center;
-
         border: black solid 2px;
-
-        margin: 16px;
         padding: 16px;
+        margin-bottom: 16px;
     }
 
     .set-icon {
@@ -70,24 +68,31 @@
     .answer-card {
         max-width: 100%;
     }
+
+    .guess-form {
+        width: 100%;
+    }
+
+    .guess-form > input {
+        width: 100%;
+        font-family: "Pokemon Fire Red", serif;
+        font-size: 1.2em;
+    }
 </style>
 
-<div class="column">
+<div class="column container">
 
     {#if !data}
         <LoadingIcon/>
     {/if}
 
     {#if data}
-        <div class="column">
-            <q class="flavor-text">{(data.flavorText + "").replace(data.name, 'BLANK')}</q>
-        </div>
+        <q class="flavor-text">{(data.flavorText + "").replace(data.name, 'BLANK')}</q>
 
-        <div class="row">
-            <span>Your guess:&nbsp;</span>
-            <input bind:value={givenAnswer} type="text"/>
-            <button on:click={checkAnswer}>Submit</button>
-        </div>
+        <form class="row guess-form" on:submit|preventDefault={processAnswer}>
+            <input bind:value={givenAnswer} type="text" placeholder="Your guess..."/>
+            <button type="submit" class="button-red-small">Submit</button>
+        </form>
 
         <h1>Lifelines</h1>
         <div class="column">
@@ -104,21 +109,26 @@
                 </fieldset>
             </Lifeline>
             <Lifeline buttonText="Show attack">
-                <fieldset class="answer">
+                <fieldset class="answer">0
                     <legend>Attack name</legend>
                     {data.attacks[Math.floor(Math.random() * data.attacks.length)].name}
                 </fieldset>
             </Lifeline>
         </div>
-
-        <details>
-            <summary>Answer</summary>
-
-            <fieldset>
-                <legend>Answer</legend>
-                <img src="{data.images.large}" class="answer-card">
-            </fieldset>
-        </details>
+        <Modal bind:this={resultDialog}>
+            <span slot="title">
+                {#if (guessedCorrectly)}
+                You were right!
+                {:else}
+                Wrong guess!
+                {/if}
+            </span>
+            <Result slot="body"
+                    card={data}
+                    guessedCorrectly={guessedCorrectly}
+            >
+            </Result>
+        </Modal>
     {/if}
 
 </div>
