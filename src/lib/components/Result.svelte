@@ -32,10 +32,11 @@
         justify-content: center;
     }
 
-    img{
-        flex: 0 0 auto;
-        max-width: 100%;
-        max-height: 100%;
+    img {
+        /*flex: 0 0 auto;*/
+        /*max-width: 100%;*/
+        /*max-height: 100%;*/
+        /*flex-grow: 1;*/
     }
 </style>
 
