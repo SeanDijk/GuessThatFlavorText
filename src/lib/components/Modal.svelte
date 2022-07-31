@@ -27,23 +27,23 @@
 
 <style>
     .dialog {
+        box-sizing: border-box;
         border-radius: 16px;
-
         max-width: 90%;
         max-height: 90%;
-
     }
 
     .dialog::backdrop {
         background-color: rgba(0, 0, 0, 0.70);
     }
 
-    .fullscreen, .fullscreenMobile {
+    .fullscreen {
+        max-width: 100%;
+        max-height: 100%;
         width: 100%;
         height: 100%;
         border-radius: 0;
     }
-
 
     .close {
         all: unset;
@@ -66,11 +66,13 @@
         outline: orange 5px auto;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (max-width: 768px) {
         .fullscreenMobile {
-            width: inherit;
-            height: inherit;
-            border-radius: inherit;
+            max-width: 100%;
+            max-height: 100%;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
         }
     }
 </style>

@@ -5,17 +5,23 @@
     import Modal from '$lib/components/Modal.svelte'
     import PokemonApiService from '$lib/js/PokemonApiService.js'
     import GuessService from '$lib/js/GuessService.js'
+    import {page} from "$app/stores";
 
+    export let card = null;
+    let cardId = atob($page.params.b64CardId)
     let givenAnswer = "";
-    let data = null;
     let guessedCorrectly = false;
     let resultDialog
-    PokemonApiService.getRandomCard().then(value => {
-        data = value
-    })
+
+    if (card == null) {
+        PokemonApiService.getCard(cardId).then(value => {
+            console.log(value)
+            card = value
+        })
+    }
 
     function checkAnswer() {
-        return GuessService.matchesAnswer(givenAnswer, data.name)
+        return GuessService.matchesAnswer(givenAnswer, card.name)
     }
 
     function processAnswer() {
@@ -77,12 +83,12 @@
 </style>
 
 <div class="column container">
-    {#if !data}
+    {#if !card}
         <LoadingIcon/>
     {/if}
 
-    {#if data}
-        <q class="flavor-text">{(data.flavorText + "").replace(data.name, 'BLANK')}</q>
+    {#if card}
+        <q class="flavor-text">{(card.flavorText + "").replace(card.name, 'BLANK')}</q>
 
         <form class="row guess-form" on:submit|preventDefault={processAnswer}>
             <input bind:value={givenAnswer} type="text" placeholder="Your guess..."/>
@@ -93,20 +99,20 @@
         <div class="column">
             <Lifeline buttonText="Show set">
                 <fieldset class="answer">
-                    <legend>{data.set.name} <img src="{data.set.images.symbol}" class="set-icon"></legend>
-                    <img src="{data.set.images.logo}" class="set-logo">
+                    <legend>{card.set.name} <img src="{card.set.images.symbol}" class="set-icon"></legend>
+                    <img src="{card.set.images.logo}" class="set-logo">
                 </fieldset>
             </Lifeline>
             <Lifeline buttonText="Show stage">
                 <fieldset class="answer">
                     <legend>Stage</legend>
-                    {data.subtypes.find(element => element === "Basic" || element.startsWith("Stage"))}
+                    {card.subtypes.find(element => element === "Basic" || element.startsWith("Stage"))}
                 </fieldset>
             </Lifeline>
             <Lifeline buttonText="Show attack">
                 <fieldset class="answer">
                     <legend>Attack name</legend>
-                    {data.attacks[Math.floor(Math.random() * data.attacks.length)].name}
+                    {card.attacks[Math.floor(Math.random() * card.attacks.length)].name}
                 </fieldset>
             </Lifeline>
         </div>
@@ -119,7 +125,7 @@
                 {/if}
             </span>
             <Result slot="body"
-                    card={data}
+                    card={card}
                     guessedCorrectly={guessedCorrectly}
             >
             </Result>
