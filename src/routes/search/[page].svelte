@@ -1,6 +1,4 @@
 <script context="module">
-    export const prerender = false;
-
     import PokemonApiService from '$lib/js/PokemonApiService.js'
 
     export async function load({params, fetch, session, stuff}) {

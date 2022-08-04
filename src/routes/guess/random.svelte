@@ -1,29 +1,20 @@
-<script context="module">
-    export const prerender = false;
-
-    import PokemonApiService from '$lib/js/PokemonApiService.js'
-
-
-    export async function load({params, fetch, session, stuff}) {
-        console.log("load")
-        let card = await PokemonApiService.getRandomCard()
-        console.log(card)
-        return {
-            status: 200,
-            props: {
-                card: card
-            }
-        };
-    }
-</script>
-
 <script>
-    import {fade, crossfade} from 'svelte/transition';
-    import {afterNavigate, beforeNavigate} from '$app/navigation';
+    import {beforeNavigate} from '$app/navigation';
     import {base} from '$app/paths';
     import CardGuess from "$lib/components/CardGuess.svelte";
+    import PokemonApiService from '$lib/js/PokemonApiService.js'
 
     export let card;
+
+    function reloadCard() {
+        PokemonApiService.getRandomCard().then(value => {
+            card = value
+        })
+    }
+
+    if (card == null) {
+        reloadCard()
+    }
 
     beforeNavigate(navigation => {
         if (navigation.from != null && navigation.to != null && navigation.from.pathname === navigation.to.pathname &&
@@ -33,21 +24,8 @@
             reloadCard()
         }
     })
-
-    function reloadCard() {
-        // card = null
-        show = false
-        PokemonApiService.getRandomCard().then(value => {
-            card = value
-        })
-    }
-
-    let status = "blub"
-    let show = true
 </script>
-{status}
-<div>
+
     {#key card}
         <CardGuess card={card}></CardGuess>
     {/key}
-</div>
