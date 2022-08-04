@@ -27,6 +27,7 @@
     <title>Guess That Flavor Text</title>
     <meta http-equiv="content-security-policy" content="">
 	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/__layout-9bba926b.css">
+	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/CardGuess-ed29d68d.css">
 	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/Modal-d6d6bca7.css">
 	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/Flipable-b72d7983.css">
 	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/start-4f1d0800.js">
@@ -34,7 +35,11 @@
 	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/paths-b9644fda.js">
 	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/singletons-eca981c1.js">
 	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/pages/__layout.svelte-63824b0c.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/pages/testResult.svelte-b765e16d.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/pages/guess/random.svelte-746e6017.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/PokemonApiService-f35c2ef0.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/_commonjsHelpers-cea7ac1a.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/navigation-e4734af4.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/CardGuess-0e435f22.js">
 	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/Modal.svelte_svelte_type_style_lang-27e94e64.js">
 	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/Flipable-58b21b00.js">
 </head>
@@ -44,18 +49,31 @@
 
 
 <header class="svelte-sn5h3u"><a href="/GuessThatFlavorText" class="link svelte-sn5h3u">Guess That Flavor Text</a></header>
-<div class="column">Try again or reveal the answer.
+<div><div class="column container svelte-m0vp9x">
 
-    <div class="cardImg svelte-r1zcyq"><div class="container svelte-k5yrj8"><div class="container-inner svelte-k5yrj8 animate  flipped-back"><div class="front svelte-k5yrj8"><img slot="front" src="https://images.pokemontcg.io/sm2/5_hires.png" class="svelte-r1zcyq"></div>
+        <q class="flavor-text svelte-m0vp9x">When it travels underground, it causes rumbling and tremors. It can move at 50 mph.</q>
+
+            <form class="row guess-form svelte-m0vp9x"><input type="text" placeholder="Your guess..." class="svelte-m0vp9x" value="">
+                <button type="submit" class="button-red-small">Submit</button></form>
+
+            <h1>Lifelines</h1>
+            <div class="column"><button class="button-red">Show set</button>
+                <button class="button-red">Show stage</button>
+                <button class="button-red">Show attack</button></div>
+            <dialog class="dialog svelte-zci3n7  fullscreenMobile"><button class="close svelte-zci3n7">x</button>
+    <h1 class="title"><span slot="title">Wrong guess!</span></h1>
+    <div class="body"><div class="column">Try again or reveal the answer.
+
+    <div class="cardImg svelte-r1zcyq"><div class="container svelte-k5yrj8"><div class="container-inner svelte-k5yrj8 animate  flipped-back"><div class="front svelte-k5yrj8"><img slot="front" src="https://images.pokemontcg.io/dp7/69_hires.png" class="svelte-r1zcyq"></div>
         <div class="back svelte-k5yrj8"><img slot="back" src="/GuessThatFlavorText/_app/immutable/assets/pokemon_card_back-2800398f.png" class="svelte-r1zcyq"></div></div></div></div>
 
-    <div class="row buttons svelte-r1zcyq"><button class="button-red-small">Show answer</button></div></div>
+    <div class="row buttons svelte-r1zcyq"><button class="button-red-small">Show answer</button></div></div></div></dialog></div></div>
 
 
-		<script type="module" data-sveltekit-hydrate="987c4s">
+		<script type="module" data-sveltekit-hydrate="46rqi8">
 		import { start } from "/GuessThatFlavorText/_app/immutable/start-4f1d0800.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="987c4s"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="46rqi8"]').parentNode,
 			paths: {"base":"/GuessThatFlavorText","assets":"/GuessThatFlavorText"},
 			session: {},
 			route: true,
@@ -64,9 +82,9 @@
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 8],
+				nodes: [0, 3],
 				params: {},
-				routeId: "testResult"
+				routeId: "guess/random"
 			}
 		});
 	</script>
