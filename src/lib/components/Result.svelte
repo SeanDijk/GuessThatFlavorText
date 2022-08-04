@@ -1,7 +1,7 @@
 <script>
     import {base} from "$app/paths";
     import cardBack from '$lib/images/pokemon_card_back.png'
-    import Flipable from "./Flipable.svelte";
+    import Flippable from "./Flippable.svelte";
 
     export let guessedCorrectly = false
     export let showAnswer = false
@@ -54,10 +54,10 @@
     {/if}
 
     <div class="cardImg" on:click={() => showAnswer = true}>
-        <Flipable showFront={show} animate={!guessedCorrectly} flipOnClick="{!guessedCorrectly}">
+        <Flippable showFront={show} animate={!guessedCorrectly} flipOnClick="{!guessedCorrectly}">
             <img slot="front" src="{card.images.large}"/>
             <img slot="back" src="{cardBack}"/>
-        </Flipable>
+        </Flippable>
     </div>
 
     {#if show === true}

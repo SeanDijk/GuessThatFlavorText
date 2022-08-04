@@ -32,6 +32,12 @@ const PokemonApiService = {
 
     getCard: async (cardId) => {
         return pokemon.card.find(cardId)
+    },
+
+    getSets: async () => {
+        let sets = pokemon.set.all()
+        console.log(sets)
+        return sets
     }
 }
 

@@ -1,20 +1,7 @@
-<script context="module">
-    export const prerender = false;
-
-    // import PokemonApiService from '$lib/js/PokemonApiService.js'
-    //
-    // /** @type {import('./__types/[slug]').Load} */
-    // export async function load({params, fetch, session, stuff}) {
-    //     return {
-    //         status: 200,
-    //         props: {
-    //             pageContents: await PokemonApiService.getPage(params.page),
-    //         }
-    //     };
-    // }
-</script>
-
 <script>
+    import PokemonApiService from '$lib/js/PokemonApiService.js'
+    // PokemonApiService.getSets()
+
     // TODO page in de q params opnemen
     import {page} from "$app/stores";
     import {groupBy} from 'lodash';
@@ -22,6 +9,8 @@
     import {base} from "$app/paths";
 
     export let pageContents
+
+
     // const pageSize = 10
     // const pageNumber = $page.params.page
     // const query = $page.url.searchParams('q')
@@ -51,6 +40,22 @@
 </script>
 
 <style>
+
+    form {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-gap: 16px;
+        width: 100%;
+    }
+
+    label {
+        grid-column: 1 / 2;
+    }
+
+    input, textarea {
+        grid-column: 2 / 3;
+
+    }
 
     table {
         /*border-spacing: 0.5rem;*/
@@ -83,22 +88,25 @@
 
 <!--Page {pageNumber} of {amountOfPages()}.-->
 <form on:submit|preventDefault={() => console.log("")}>
-    <div class="form-main">
-        <label class="field">Name: <input/></label>
-        <label class="field">Attack name: <input/></label>
-        <label class="field">Set: <input/></label>
-        <label class="field">Flavor text: <input/></label>
+    <label class="field">Name: </label>
+    <input placeholder="Pikachu"/>
+    <label class="field">Attack name:</label>
+    <input placeholder="Pika punch"/>
+    <label class="field">Set:</label>
+    <input placeholder="Stormfront"/>
+    <label class="field">Flavor text:</label>
+    <textarea placeholder="It lives in forests with others"/>
 
-    </div>
-
-    <details>
-        <summary>Advanced search</summary>
-        <label class="field">Hp: <input/></label>
-        <label class="field">Artist: <input/></label>
-        <label class="field">Types: <input/></label>
-        <label class="field">Retreat cost: <input/></label>
-    </details>
 </form>
+
+<!--TODO More search options-->
+<!--<details>-->
+<!--    <summary>Advanced search</summary>-->
+<!--    <label class="field">Hp: <input/></label>-->
+<!--    <label class="field">Artist: <input/></label>-->
+<!--    <label class="field">Types: <input/></label>-->
+<!--    <label class="field">Retreat cost: <input/></label>-->
+<!--</details>-->
 
 <!--<table>-->
 <!--    <thead>-->

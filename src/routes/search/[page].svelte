@@ -72,7 +72,8 @@
 
 Page {pageNumber} of {amountOfPages()}.
 <form on:submit|preventDefault={() => console.log("")}>
-    <label>Name: <input/></label>
+    <div></div>
+    <label>Name: <input placeholder="Pikachu"/></label>
     <label>Hp: <input/></label>
     <label>Attack name: <input/></label>
     <label>Set: <input/></label>
