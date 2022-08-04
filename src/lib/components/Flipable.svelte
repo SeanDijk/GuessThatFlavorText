@@ -1,6 +1,7 @@
 <script>
     export let showFront = true;
     export let flipOnClick = true;
+    export let animate = false;
 
     export function flip() {
         showFront = !showFront
@@ -21,8 +22,10 @@
 
     .container-inner {
         display: grid;
-        transition: transform 1s, left 1s;
         transform-style: preserve-3d;
+    }
+    .animate {
+        transition: transform 1s;
     }
 
     .front, .back {
@@ -51,6 +54,7 @@
 
 <div class="container">
     <div class="container-inner"
+         class:animate={animate}
          class:flipped-front={showFront}
          class:flipped-back={!showFront}
          on:click={() => {if (flipOnClick) flip()}}

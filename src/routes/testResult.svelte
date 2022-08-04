@@ -1,6 +1,6 @@
 <script>
-    import Modal from "../lib/components/Modal.svelte";
-    import Result from "../lib/components/Result.svelte";
+    import Modal from "$lib/components/Modal.svelte";
+    import Result from "$lib/components/Result.svelte";
 
     let card = {
         "id": "sm2-5",

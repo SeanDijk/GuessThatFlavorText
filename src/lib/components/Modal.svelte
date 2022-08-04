@@ -22,7 +22,6 @@
             close();
         }
     }
-
 </script>
 
 <style>
@@ -78,7 +77,8 @@
 </style>
 
 <dialog class="dialog" class:fullscreen={fullScreen} class:fullscreenMobile={mobileFullScreen} bind:this={dialog}
-        on:click={closeOutside}>
+        on:click={closeOutside}
+>
     <button class="close" on:click={close}>x</button>
     <h1 class="title">
         <slot name="title"></slot>

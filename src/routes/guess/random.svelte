@@ -1,129 +1,60 @@
-<script>
-    import LoadingIcon from '$lib/components/LoadingIcon.svelte'
-    import Lifeline from '$lib/components/Lifeline.svelte'
-    import Result from '$lib/components/Result.svelte'
-    import Modal from '$lib/components/Modal.svelte'
+<script context="module">
+    export const prerender = false;
+
     import PokemonApiService from '$lib/js/PokemonApiService.js'
-    import GuessService from '$lib/js/GuessService.js'
 
-    let givenAnswer = "";
-    let data = null;
-    let guessedCorrectly = false;
-    let resultDialog
-    PokemonApiService.getRandomCard().then(value => {
-        data = value
-    })
 
-    function checkAnswer() {
-        return GuessService.matchesAnswer(givenAnswer, data.name)
-    }
-
-    function processAnswer() {
-        guessedCorrectly = checkAnswer()
-        resultDialog.showModal()
+    export async function load({params, fetch, session, stuff}) {
+        console.log("load")
+        let card = await PokemonApiService.getRandomCard()
+        console.log(card)
+        return {
+            status: 200,
+            props: {
+                card: card
+            }
+        };
     }
 </script>
 
-<style>
-    .container {
-        margin: 16px;
+<script>
+    import {fade, crossfade} from 'svelte/transition';
+    import {afterNavigate, beforeNavigate} from '$app/navigation';
+    import {base} from '$app/paths';
+    import CardGuess from "$lib/components/CardGuess.svelte";
+
+    export let card;
+
+    beforeNavigate(navigation => {
+        navigation.cancel()
+        if (navigation.from != null && navigation.to != null && navigation.from.pathname === navigation.to.pathname &&
+            (navigation.to.pathname === `${base}/guess/random` || navigation.to.pathname === `/${base}/guess/random`)
+        ) {
+            reloadCard()
+        }
+    })
+
+    function reloadCard() {
+        // card = null
+        show = false
+        PokemonApiService.getRandomCard().then(value => {
+            card = value
+        })
     }
 
-    .flavor-text {
-        font-size: 1.5em;
-        text-align: center;
-        border: black solid 2px;
-        padding: 16px;
-        margin-bottom: 16px;
-    }
-
-    .set-icon {
-        flex: 0 0 auto;
-        max-width: 100%;
-        height: .8em;
-    }
-
-    .set-logo {
-        flex: 0 0 auto;
-        max-width: 100%;
-        height: 100%;
-        align-self: center;
-    }
-
-    .answer {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.6em;
-        max-height: 2.8em;
-    }
-
-    legend {
-        display: flex;
-        align-items: center;
-        font-size: 1.1em;
-    }
-
-    .guess-form {
-        width: 100%;
-    }
-
-    .guess-form > input {
-        width: 100%;
-        font-family: "Pokemon Fire Red", serif;
-        font-size: 1.2em;
-    }
-</style>
-
-<div class="column container">
-    {#if !data}
-        <LoadingIcon/>
-    {/if}
-
-    {#if data}
-        <q class="flavor-text">{(data.flavorText + "").replace(data.name, 'BLANK')}</q>
-
-        <form class="row guess-form" on:submit|preventDefault={processAnswer}>
-            <input bind:value={givenAnswer} type="text" placeholder="Your guess..."/>
-            <button type="submit" class="button-red-small">Submit</button>
-        </form>
-
-        <h1>Lifelines</h1>
-        <div class="column">
-            <Lifeline buttonText="Show set">
-                <fieldset class="answer">
-                    <legend>{data.set.name} <img src="{data.set.images.symbol}" class="set-icon"></legend>
-                    <img src="{data.set.images.logo}" class="set-logo">
-                </fieldset>
-            </Lifeline>
-            <Lifeline buttonText="Show stage">
-                <fieldset class="answer">
-                    <legend>Stage</legend>
-                    {data.subtypes.find(element => element === "Basic" || element.startsWith("Stage"))}
-                </fieldset>
-            </Lifeline>
-            <Lifeline buttonText="Show attack">
-                <fieldset class="answer">
-                    <legend>Attack name</legend>
-                    {data.attacks[Math.floor(Math.random() * data.attacks.length)].name}
-                </fieldset>
-            </Lifeline>
-        </div>
-        <Modal bind:this={resultDialog} mobileFullScreen={true}>
-            <span slot="title">
-                {#if (guessedCorrectly)}
-                You were right!
-                {:else}
-                Wrong guess!
-                {/if}
-            </span>
-            <Result slot="body"
-                    card={data}
-                    guessedCorrectly={guessedCorrectly}
-            >
-            </Result>
-        </Modal>
-    {/if}
-
-</div>
+    let status = "blub"
+    let show = true
+</script>
+{status}
+{#if show}
+    <div transition:fade={{delay: 200, duration: 1000}}
+         on:introstart="{() => status = 'intro started'}"
+         on:outrostart="{() => status = 'outro started'}"
+         on:introend="{() => status = 'intro ended'}"
+         on:outroend="{() => {status = 'outro ended'; show = true}}"
+    >
+        {#key card}
+            <CardGuess card={card}></CardGuess>
+        {/key}
+    </div>
+{/if}

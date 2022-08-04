@@ -5,7 +5,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"package": "svelte-kit package",
-		"preview": "vite preview",
+		"preview": "vite preview --base '/GuessThatFlavorText' --open",
 		"prepare": "svelte-kit sync",
 		"check": "svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",

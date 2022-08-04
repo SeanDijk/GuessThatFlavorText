@@ -11,7 +11,8 @@ const config = {
             assets: 'build',
         }),
         paths: {
-            base: dev ? '' : '/GuessThatFlavorText',
+            // base: dev ? '' : '/GuessThatFlavorText',
+            base: '/GuessThatFlavorText',
         },
         prerender: {
             default: true

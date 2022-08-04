@@ -1,5 +1,5 @@
 <script>
-    import Flipable from "../lib/components/Flipable.svelte";
+    import Flipable from "$lib/components/Flipable.svelte";
 
     import cardBack from '$lib/images/pokemon_card_back.png'
 

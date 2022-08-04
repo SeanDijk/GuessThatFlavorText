@@ -1,11 +1,15 @@
 <script>
+    import {base} from "$app/paths";
     import cardBack from '$lib/images/pokemon_card_back.png'
     import Flipable from "./Flipable.svelte";
 
+    export let guessedCorrectly = false
     export let showAnswer = false
     export let card
 
     const answerString = `The card was ${card.name} from ${card.set.name}!`
+
+    $: show = showAnswer || guessedCorrectly
 
     function getMessage() {
         if (showAnswer === true) {
@@ -43,26 +47,26 @@
 </style>
 
 <div class="column">
-    {#if showAnswer === true}
+    {#if show === true}
         The card was {card.name} from {card.set.name}!
     {:else }
         Try again or reveal the answer.
     {/if}
 
     <div class="cardImg" on:click={() => showAnswer = true}>
-        <Flipable showFront={showAnswer}>
+        <Flipable showFront={show} animate={!guessedCorrectly} flipOnClick="{!guessedCorrectly}">
             <img slot="front" src="{card.images.large}"/>
             <img slot="back" src="{cardBack}"/>
         </Flipable>
     </div>
 
-    {#if showAnswer === true}
+    {#if show === true}
         <div class="row buttons">
-            <button class="button-red-small">New flavor text</button>
+            <a class="button-red-small" href="{base}/guess/random">New flavor text</a>
         </div>
     {:else }
         <div class="row buttons">
-            <button class="button-red-small" on:click={() =>showAnswer = true}>Show answer</button>
+            <button class="button-red-small" on:click={() => showAnswer = true}>Show answer</button>
         </div>
     {/if}
 </div>

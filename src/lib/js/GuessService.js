@@ -4,6 +4,9 @@ function removeAccents(str) {
 
 const GuessService = {
     matchesAnswer:(guess, answer) => {
+
+        // TODO characters like ♀
+        // TODO ignore regions like 'Galarian'
         return removeAccents(guess.toLowerCase()) === removeAccents(answer.toLowerCase())
     }
 }

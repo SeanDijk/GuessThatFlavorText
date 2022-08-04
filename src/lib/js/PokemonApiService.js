@@ -25,7 +25,7 @@ const PokemonApiService = {
     getPage: async (pageNumber) => {
         return pokemon.card.where({
             q: 'flavorText:*',
-            pageSize: 100,
+            pageSize: 10,
             page: pageNumber
         })
     },
