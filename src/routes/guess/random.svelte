@@ -26,10 +26,10 @@
     export let card;
 
     beforeNavigate(navigation => {
-        navigation.cancel()
         if (navigation.from != null && navigation.to != null && navigation.from.pathname === navigation.to.pathname &&
             (navigation.to.pathname === `${base}/guess/random` || navigation.to.pathname === `/${base}/guess/random`)
         ) {
+            navigation.cancel()
             reloadCard()
         }
     })
@@ -46,15 +46,8 @@
     let show = true
 </script>
 {status}
-{#if show}
-    <div transition:fade={{delay: 200, duration: 1000}}
-         on:introstart="{() => status = 'intro started'}"
-         on:outrostart="{() => status = 'outro started'}"
-         on:introend="{() => status = 'intro ended'}"
-         on:outroend="{() => {status = 'outro ended'; show = true}}"
-    >
-        {#key card}
-            <CardGuess card={card}></CardGuess>
-        {/key}
-    </div>
-{/if}
+<div>
+    {#key card}
+        <CardGuess card={card}></CardGuess>
+    {/key}
+</div>

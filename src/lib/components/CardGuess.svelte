@@ -4,7 +4,6 @@
     import Result from '$lib/components/Result.svelte'
     import Modal from '$lib/components/Modal.svelte'
     import GuessService from '$lib/js/GuessService.js'
-    import {close} from "./Modal.svelte";
 
     export let card = null
     let givenAnswer = "";
@@ -18,11 +17,6 @@
     function processAnswer() {
         guessedCorrectly = checkAnswer()
         resultDialog.showModal()
-    }
-    function handleCloseEvent(event) {
-        console.log('blub')
-        console.log(event)
-        resultDialog.close()
     }
 </script>
 
@@ -112,7 +106,7 @@
                     </fieldset>
                 </Lifeline>
             </div>
-            <Modal bind:this={resultDialog} mobileFullScreen={true} on:message={handleCloseEvent}>
+            <Modal bind:this={resultDialog} mobileFullScreen={true}>
             <span slot="title">
                 {#if (guessedCorrectly)}
                 You were right!
@@ -123,7 +117,6 @@
                 <Result slot="body"
                         card={card}
                         guessedCorrectly={guessedCorrectly}
-                        on:message={handleCloseEvent}
                 >
                 </Result>
             </Modal>
