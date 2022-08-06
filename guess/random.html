@@ -27,21 +27,22 @@
     <title>Guess That Flavor Text</title>
     <meta http-equiv="content-security-policy" content="">
 	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/__layout-9bba926b.css">
-	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/CardGuess-ed29d68d.css">
+	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/CardGuess-fbf39270.css">
+	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/LoadingIcon-0c1c4b3d.css">
 	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/Modal-d6d6bca7.css">
-	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/Flipable-b72d7983.css">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/start-4f1d0800.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/index-3edbca9c.js">
+	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/Flippable-b72d7983.css">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/start-e123f9c7.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/index-621a1bb0.js">
 	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/paths-b9644fda.js">
 	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/singletons-eca981c1.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/pages/__layout.svelte-63824b0c.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/pages/guess/random.svelte-746e6017.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/PokemonApiService-f35c2ef0.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/_commonjsHelpers-cea7ac1a.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/pages/__layout.svelte-5e1611ff.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/pages/guess/random.svelte-1a4d62eb.js">
 	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/navigation-e4734af4.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/CardGuess-0e435f22.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/Modal.svelte_svelte_type_style_lang-27e94e64.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/Flipable-58b21b00.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/CardGuess-1c16f4a7.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/LoadingIcon-a0a29feb.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/Modal.svelte_svelte_type_style_lang-7642ac20.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/Flippable-c0cd92ac.js">
+	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/PokemonApiService-1b5e6158.js">
 </head>
 <body>
 
@@ -49,31 +50,15 @@
 
 
 <header class="svelte-sn5h3u"><a href="/GuessThatFlavorText" class="link svelte-sn5h3u">Guess That Flavor Text</a></header>
-<div><div class="column container svelte-m0vp9x">
+<div class="column container svelte-m0vp9x"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHoAAAB7CAYAAAC7BZRBAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9bpSKVDhYR6ZChOlkQleKoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APE0clJ0UVK/F9SaBHjwXE/3t173L0D/M0qU82eCUDVLCOTSgq5/KoQfEUQQwgjgajETH1OFNPwHF/38PH1Ls6zvM/9OQaUgskAn0A8y3TDIt4gTmxaOud94ggrSwrxOfG4QRckfuS67PIb55LDfp4ZMbKZeeIIsVDqYrmLWdlQiaeJY4qqUb4/57LCeYuzWq2z9j35C0MFbWWZ6zSjSGERSxAhQEYdFVRhIU6rRoqJDO0nPfwjjl8kl0yuChg5FlCDCsnxg//B727N4tSkmxRKAr0vtv0xCgR3gVbDtr+Pbbt1AgSegSut4681gZlP0hsdLXYEhLeBi+uOJu8BlzvA8JMuGZIjBWj6i0Xg/Yy+KQ8M3gL9a25v7X2cPgBZ6ip9AxwcAmMlyl73eHdfd2//nmn39wOqF3K9NsIe1gAAAAlwSFlzAAB1MAAAdTAB3TNyzQAAAAd0SU1FB+YHFwwSOsTFsQwAAAH9SURBVHja7d2hbsJQFIBhWEaCxpAlmCXTMzzF1F5hZqLJDJndKywYEsSeYmpPgUEvmcFgqpsgmCVVh+Y0Ldv36Rso/XcrTrp2MADgwgwv6FiPzmVzV/7W/wehhUZohEZohEZohCauzWlO6iTrfTrt9Yl83e973caOdulGaIRGaIRGaIRGaGqaTF9CE6/oJOtuNgutu39+CK3bfnylnqDv3S71834Oh9C6VVmmNrSjXboRGqERGqERGqERmprrtj44e+J18/SWenzRCVr0d0QnaLejkR2N0AiN0AgtNEIjNELTB6eTsdR7waKy7/HK/ryuvEwmoXWrsjza0QgtNEIjNEIjNEIjNA2cfc9Y9B6qbNGJ1+Nmk/q9fX++mR2N0EIjNEIjNEIjNELT0OkzqlKfmP85n6ceaHTiVVVVaN16vQ6tWywWoXXRCVoLzxmzoxFaaIRGaIRGaIRGaJo4+56x6ORpPB538oOiE69s2e+mXC6XoXXRyZ0d7dKN0AiN0AiN0AiN0NS09m7K6AQtW/ZELjqhyhadeA28mxKhhUZohEZohEZohKaZ1t5NGb13qyiK1O/N/m9KOxqhERqhERqhERqhheaPGrb42anPLevq3q2oM+7x6qSNHe3SjdAIjdAIjdAIjdDUDC/oWI/OpR2N0AgtNEIjNEIjNEKT5hcXvFdLikG1QwAAAABJRU5ErkJggg==" class="loading svelte-1awfvis">
 
-        <q class="flavor-text svelte-m0vp9x">When it travels underground, it causes rumbling and tremors. It can move at 50 mph.</q>
-
-            <form class="row guess-form svelte-m0vp9x"><input type="text" placeholder="Your guess..." class="svelte-m0vp9x" value="">
-                <button type="submit" class="button-red-small">Submit</button></form>
-
-            <h1>Lifelines</h1>
-            <div class="column"><button class="button-red">Show set</button>
-                <button class="button-red">Show stage</button>
-                <button class="button-red">Show attack</button></div>
-            <dialog class="dialog svelte-zci3n7  fullscreenMobile"><button class="close svelte-zci3n7">x</button>
-    <h1 class="title"><span slot="title">Wrong guess!</span></h1>
-    <div class="body"><div class="column">Try again or reveal the answer.
-
-    <div class="cardImg svelte-r1zcyq"><div class="container svelte-k5yrj8"><div class="container-inner svelte-k5yrj8 animate  flipped-back"><div class="front svelte-k5yrj8"><img slot="front" src="https://images.pokemontcg.io/dp7/69_hires.png" class="svelte-r1zcyq"></div>
-        <div class="back svelte-k5yrj8"><img slot="back" src="/GuessThatFlavorText/_app/immutable/assets/pokemon_card_back-2800398f.png" class="svelte-r1zcyq"></div></div></div></div>
-
-    <div class="row buttons svelte-r1zcyq"><button class="button-red-small">Show answer</button></div></div></div></dialog></div></div>
+        </div>
 
 
-		<script type="module" data-sveltekit-hydrate="46rqi8">
-		import { start } from "/GuessThatFlavorText/_app/immutable/start-4f1d0800.js";
+		<script type="module" data-sveltekit-hydrate="1juyrbj">
+		import { start } from "/GuessThatFlavorText/_app/immutable/start-e123f9c7.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="46rqi8"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1juyrbj"]').parentNode,
 			paths: {"base":"/GuessThatFlavorText","assets":"/GuessThatFlavorText"},
 			session: {},
 			route: true,
