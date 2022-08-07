@@ -2,6 +2,11 @@ import pokemon from 'pokemontcgsdk'
 
 let amountOfCards = null
 
+function isNonEmpty(given) {
+    return given !== undefined && given != null && (typeof given === 'string' && given.trim() !== '')
+}
+
+
 const PokemonApiService = {
     getAmountOfCards: async () => {
         if (amountOfCards == null) {
@@ -32,6 +37,49 @@ const PokemonApiService = {
 
     getCard: async (cardId) => {
         return pokemon.card.find(cardId)
+    },
+
+    getCardPage: async (params) => {
+
+        let q = ""
+
+        function appendQ(str) {
+            q = q + str + ' '
+        }
+
+        if (params.page == null) {
+            params.page = 1
+        }
+
+        if (params.pageSize == null) {
+            params.pageSize = 20
+        }
+
+        if (isNonEmpty(params.name)) {
+            appendQ(`name:"*${params.name}*"`)
+        }
+
+        if (isNonEmpty(params.attackName)) {
+            appendQ(`attacks.name:"*${params.attackName}*"`)
+        }
+
+        if (isNonEmpty(params.set)) {
+            appendQ(`(set.name:"*${params.set}*" OR set.series:"*${params.set}*")`)
+        }
+
+        if (isNonEmpty(params.flavorText)) {
+            appendQ(`flavorText:"*${params.flavorText}*"`)
+        } else {
+            appendQ(`flavorText:"*"`)
+        }
+
+        return pokemon.card.where({
+            pageSize: params.pageSize,
+            page: params.page,
+            orderBy: "-set.releaseDate, number",
+            q: q
+        })
+
     },
 
     getSets: async () => {

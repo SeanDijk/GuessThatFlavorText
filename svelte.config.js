@@ -9,6 +9,7 @@ const config = {
         adapter: adapter({
             pages: 'build',
             assets: 'build',
+            fallback: 'fallback.html'
         }),
         paths: {
             // base: dev ? '' : '/GuessThatFlavorText',

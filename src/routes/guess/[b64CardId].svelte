@@ -8,7 +8,6 @@
 
     if (card == null) {
         PokemonApiService.getCard(cardId).then(value => {
-            console("not like this")
             card = value
         })
     }

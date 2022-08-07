@@ -1,51 +1,107 @@
+<script context="module">
+    export const prerender = false;
+</script>
 <script>
     import PokemonApiService from '$lib/js/PokemonApiService.js'
-    // PokemonApiService.getSets()
-
-    // TODO page in de q params opnemen
     import {page} from "$app/stores";
-    import {groupBy} from 'lodash';
+    import pkg from 'lodash';
     import {goto} from "$app/navigation";
     import {base} from "$app/paths";
+    import LoadingIcon from "$lib/components/LoadingIcon.svelte";
+    import {replaceStateWithQuery} from "$lib/js/QueryParams.js";
+    const { groupBy } = pkg;
 
     export let pageContents
+    let groupedBySet
+    let amountOfPages
+    let haveSearched = false
+    let searching = false
 
+    let pageNumber = parseInt($page.url.searchParams.get('page') ?? '1')
+    let pageSize = parseInt($page.url.searchParams.get('pageSize') ?? '20')
+    let qName = $page.url.searchParams.get('name')
+    let qAttackName = $page.url.searchParams.get('attackName')
+    let qSet = $page.url.searchParams.get('set')
+    let qFlavorText = $page.url.searchParams.get('flavorText')
 
-    // const pageSize = 10
-    // const pageNumber = $page.params.page
-    // const query = $page.url.searchParams('q')
+    console.log(pageNumber)
 
-    // const query = $page.params('q')
-    // const page = $page.url.searchParams('page')
-    // const pageSize = $page.url.searchParams('pageSize')
-    // const orderBy = $page.params('orderBy')
+    $: if (pageContents) {
+        groupedBySet = groupBy(pageContents.data, (card) => {
+            return `${card.set.series} - ${card.set.name}`
+        })
+    } else {
+        groupedBySet = {}
+    }
 
-    // const name = $page.params('name')
+    $: if (pageContents) {
+        let x = parseInt(pageContents.totalCount / pageSize)
+        if (pageContents.totalCount % pageSize) {
+            x++;
+        }
+        amountOfPages = x
+    }
 
+    function submit() {
 
+        let queryParamsToAddToUrl = {}
+        if (pageNumber !== 1) queryParamsToAddToUrl.page = pageNumber
+        if (pageSize !== 20) queryParamsToAddToUrl.pageSize = pageSize
+        if (qName) queryParamsToAddToUrl.name = qName
+        if (qAttackName) queryParamsToAddToUrl.attackName = qAttackName
+        if (qSet) queryParamsToAddToUrl.set = qSet
+        if (qFlavorText) queryParamsToAddToUrl.flavorText = qFlavorText
 
+        if (typeof window !== 'undefined') {
+            replaceStateWithQuery(queryParamsToAddToUrl)
+        }
 
-    //let groupedBySet = groupBy(pageContents.data, (card) => {
-    //    return `${card.set.series} - ${card.set.name}`
-    //})
-//
-    //function amountOfPages() {
-    //    let x = parseInt(pageContents.totalCount / pageSize)
-    //    if (pageContents.totalCount % pageSize) {
-    //        x++;
-    //    }
-    //    return x;
-    //}
+        searching = true
+        PokemonApiService.getCardPage({
+            page: pageNumber,
+            pageSize: pageSize,
+            name: qName,
+            attackName: qAttackName,
+            set: qSet,
+            flavorText: qFlavorText
+        }).then(value => {
+            pageContents = value
+            haveSearched = true
+            searching = false
+        })
+    }
+
+    function goToPage(number) {
+        pageNumber = number
+        console.log('Go to ' + number)
+        submit()
+    }
+
+    function nextPage() {
+        console.log('next')
+        goToPage(pageNumber + 1)
+    }
+
+    function previousPage() {
+        console.log('prev')
+        goToPage(pageNumber - 1)
+    }
+
+    if (qName || qAttackName || qSet || qFlavorText || pageNumber !== 1) {
+        submit()
+    }
 
 </script>
 
 <style>
 
-    form {
+    .form-grid {
         display: grid;
         grid-template-columns: 200px 1fr;
         grid-gap: 16px;
         width: 100%;
+        padding-top: 16px;
+        padding-bottom: 16px;
     }
 
     label {
@@ -81,58 +137,78 @@
 
     .field {
         padding: 8px 4px;
-        white-space:nowrap;
+        white-space: nowrap;
+    }
 
+    .submit {
+        width: 100%;
+    }
+
+    .page-number-selector {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 </style>
+<form on:submit|preventDefault={submit}>
+    <div class="form-grid">
+        <label for="name" class="field">Name: </label>
+        <input id="name" bind:value={qName} placeholder="Pikachu"/>
 
-<!--Page {pageNumber} of {amountOfPages()}.-->
-<form on:submit|preventDefault={() => console.log("")}>
-    <label class="field">Name: </label>
-    <input placeholder="Pikachu"/>
-    <label class="field">Attack name:</label>
-    <input placeholder="Pika punch"/>
-    <label class="field">Set:</label>
-    <input placeholder="Stormfront"/>
-    <label class="field">Flavor text:</label>
-    <textarea placeholder="It lives in forests with others"/>
+        <label for="attack-name" class="field">Attack name:</label>
+        <input id="attack-name" bind:value={qAttackName} placeholder="Pika punch"/>
 
+        <label for="set" class="field">Set:</label>
+        <input id="set" bind:value={qSet} placeholder="Stormfront"/>
+
+        <label for="flavor-text" class="field">Flavor text:</label>
+        <textarea id="flavor-text" bind:value={qFlavorText} placeholder="It lives in forests with others"></textarea>
+
+    </div>
+
+    <button class="button-red-small submit">Search</button>
 </form>
+{#if searching}
+    <LoadingIcon></LoadingIcon>
+{/if}
+{#if haveSearched && pageContents && pageContents.totalCount > 0}
+    <div class="page-number-selector">
+        <button on:click={previousPage} disabled='{pageNumber <= 1}'>Previous</button>
+        <span>Page {pageNumber} of {amountOfPages}</span>
+        <button on:click={nextPage} disabled='{pageNumber >= amountOfPages}'>Next</button>
+    </div>
 
-<!--TODO More search options-->
-<!--<details>-->
-<!--    <summary>Advanced search</summary>-->
-<!--    <label class="field">Hp: <input/></label>-->
-<!--    <label class="field">Artist: <input/></label>-->
-<!--    <label class="field">Types: <input/></label>-->
-<!--    <label class="field">Retreat cost: <input/></label>-->
-<!--</details>-->
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Flavor text</th>
+            <th>Attacks</th>
+        </tr>
+        </thead>
+        <tbody>
+        {#each Object.entries(groupedBySet) as [set, cards]}
+            <tr>
+                <th colspan="3">{set}</th>
+            </tr>
+            {#each cards as card}
+                <tr on:click={() => goto(base + "/guess/" + btoa(card.id))} class="clickable">
+                    <td>{card.name}</td>
+                    <td>{card.flavorText}</td>
+                    <td>{card?.attacks?.map(value => value.name).reduce((previousValue, currentValue) => previousValue + ", " + currentValue) || ''}</td>
+                    <!--{card.id} | {card.name} | {card.flavorText} | {card.set.series} - {card.set.name} | -->
+                </tr>
+            {/each}
 
-<!--<table>-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th>Name</th>-->
-<!--        <th>Flavor text</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    {#each Object.entries(groupedBySet) as [set, cards]}-->
-<!--        <tr>-->
-<!--            <th colspan="2">{set}</th>-->
-<!--        </tr>-->
+        {/each}
+        </tbody>
+    </table>
 
-<!--        {#each cards as card}-->
-<!--            <tr on:click={() => goto(base + "/guess/" + btoa(card.id))} class="clickable">-->
-<!--                <td>{card.name}</td>-->
-<!--                <td>{card.flavorText}</td>-->
-<!--                &lt;!&ndash;{card.id} | {card.name} | {card.flavorText} | {card.set.series} - {card.set.name} | &ndash;&gt;-->
-<!--            </tr>-->
-<!--        {/each}-->
-
-<!--    {/each}-->
-
-<!--    </tbody>-->
-
-
-<!--</table>-->
-
+    <div class="page-number-selector">
+        <button on:click={previousPage} disabled='{pageNumber <= 1}'>Previous</button>
+        <span>Page {pageNumber} of {amountOfPages}</span>
+        <button on:click={nextPage} disabled='{pageNumber >= amountOfPages}'>Next</button>
+    </div>
+{:else if haveSearched}
+    No results found
+{/if}

@@ -1,5 +1,5 @@
 <script>
-    import Flipable from "$lib/components/Flipable.svelte";
+    import Flippable from "$lib/components/Flippable.svelte";
 
     import cardBack from '$lib/images/pokemon_card_back.png'
 
@@ -13,7 +13,7 @@
     }
 </style>
 
-<Flipable>
+<Flippable>
     <slot slot="front">
         <img src="{srcFront}">
     </slot>
@@ -23,4 +23,4 @@
 <!--    srcFront="{srcFront}"-->
 <!--    srcBack="{cardBack}"-->
 
-</Flipable>
+</Flippable>
