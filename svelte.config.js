@@ -9,11 +9,11 @@ const config = {
         adapter: adapter({
             pages: 'build',
             assets: 'build',
-            fallback: 'fallback.html'
+            fallback: '200.html'
         }),
         paths: {
             // base: dev ? '' : '/GuessThatFlavorText',
-            base: '/GuessThatFlavorText',
+            // base: '/GuessThatFlavorText',
         },
         prerender: {
             default: true
