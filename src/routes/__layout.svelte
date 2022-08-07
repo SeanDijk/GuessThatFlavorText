@@ -22,7 +22,7 @@
 
 </style>
 <header>
-    <a href="{base}" class="link">Guess That Flavor Text</a>
+    <a href="{base ?? '/'}" class="link">Guess That Flavor Text</a>
 </header>
 <slot>
 
