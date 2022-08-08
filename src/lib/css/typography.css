@@ -1,9 +1,8 @@
-/*This does not work. Font in app.html for now*/
-/*@font-face {*/
-/*    font-family: 'Pokemon Fire Red';*/
-/*    src: url('$app/paths/assets/fonts/pokemon_fire_red.woff') format("woff"),*/
-/*    url('$app/paths/assets/fonts/pokemon_fire_red.ttf') format("truetype");*/
-/*}*/
+@font-face {
+    font-family: 'Pokemon Fire Red';
+    src: url('/fonts/pokemon_fire_red.woff') format("woff"),
+    url('/fonts/pokemon_fire_red.ttf') format("truetype");
+}
 
 
 :root {

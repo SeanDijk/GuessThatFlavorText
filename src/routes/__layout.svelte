@@ -5,6 +5,7 @@
     @import url('$lib/css/buttons.css');
     @import url('$lib/css/util.css');
     @import url('$lib/css/typography.css');
+    @import url('$lib/css/animations.css');
 
     header {
         font-family: "Pokemon Fire Red", serif;
@@ -22,7 +23,7 @@
 
 </style>
 <header>
-    <a href="{base ?? '/'}" class="link">Guess That Flavor Text</a>
+    <a href="{base}/" class="link">Guess That Flavor Text</a>
 </header>
 <slot>
 

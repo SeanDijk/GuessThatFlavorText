@@ -9,7 +9,9 @@
     import {base} from "$app/paths";
     import LoadingIcon from "$lib/components/LoadingIcon.svelte";
     import {replaceStateWithQuery} from "$lib/js/QueryParams.js";
-    const { groupBy } = pkg;
+    import {fade} from 'svelte/transition';
+
+    const {groupBy} = pkg;
 
     export let pageContents
     let groupedBySet
@@ -23,8 +25,6 @@
     let qAttackName = $page.url.searchParams.get('attackName')
     let qSet = $page.url.searchParams.get('set')
     let qFlavorText = $page.url.searchParams.get('flavorText')
-
-    console.log(pageNumber)
 
     $: if (pageContents) {
         groupedBySet = groupBy(pageContents.data, (card) => {
@@ -45,7 +45,7 @@
     function submit() {
 
         let queryParamsToAddToUrl = {}
-        if (pageNumber !== 1) queryParamsToAddToUrl.page = pageNumber
+        if (haveSearched) queryParamsToAddToUrl.page = pageNumber
         if (pageSize !== 20) queryParamsToAddToUrl.pageSize = pageSize
         if (qName) queryParamsToAddToUrl.name = qName
         if (qAttackName) queryParamsToAddToUrl.attackName = qAttackName
@@ -73,17 +73,14 @@
 
     function goToPage(number) {
         pageNumber = number
-        console.log('Go to ' + number)
         submit()
     }
 
     function nextPage() {
-        console.log('next')
         goToPage(pageNumber + 1)
     }
 
     function previousPage() {
-        console.log('prev')
         goToPage(pageNumber - 1)
     }
 
@@ -94,7 +91,6 @@
 </script>
 
 <style>
-
     .form-grid {
         display: grid;
         grid-template-columns: 200px 1fr;
@@ -113,10 +109,6 @@
 
     }
 
-    table {
-        /*border-spacing: 0.5rem;*/
-    }
-
     th {
         text-align: left;
     }
@@ -128,11 +120,6 @@
 
     .clickable {
         cursor: pointer;
-    }
-
-    .form-main {
-        display: flex;
-        flex-wrap: wrap;
     }
 
     .field {
@@ -150,6 +137,7 @@
         justify-content: space-between;
     }
 </style>
+
 <form on:submit|preventDefault={submit}>
     <div class="form-grid">
         <label for="name" class="field">Name: </label>
@@ -168,46 +156,49 @@
 
     <button class="button-red-small submit">Search</button>
 </form>
+
 {#if searching}
-    <LoadingIcon></LoadingIcon>
+    <LoadingIcon position="relative"></LoadingIcon>
 {/if}
 {#if haveSearched && pageContents && pageContents.totalCount > 0}
-    <div class="page-number-selector">
-        <button on:click={previousPage} disabled='{pageNumber <= 1}'>Previous</button>
-        <span>Page {pageNumber} of {amountOfPages}</span>
-        <button on:click={nextPage} disabled='{pageNumber >= amountOfPages}'>Next</button>
-    </div>
+    <div transition:fade on:load={() => console.log('test')}>
+        <div class="page-number-selector">
+            <button on:click={previousPage} disabled='{pageNumber <= 1}'>Previous</button>
+            <span>Page {pageNumber} of {amountOfPages}</span>
+            <button on:click={nextPage} disabled='{pageNumber >= amountOfPages}'>Next</button>
+        </div>
 
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Flavor text</th>
-            <th>Attacks</th>
-        </tr>
-        </thead>
-        <tbody>
-        {#each Object.entries(groupedBySet) as [set, cards]}
+
+        <table>
+            <thead>
             <tr>
-                <th colspan="3">{set}</th>
+                <th>Name</th>
+                <th>Flavor text</th>
+                <th>Attacks</th>
             </tr>
-            {#each cards as card}
-                <tr on:click={() => goto(base + "/guess/" + btoa(card.id))} class="clickable">
-                    <td>{card.name}</td>
-                    <td>{card.flavorText}</td>
-                    <td>{card?.attacks?.map(value => value.name).reduce((previousValue, currentValue) => previousValue + ", " + currentValue) || ''}</td>
-                    <!--{card.id} | {card.name} | {card.flavorText} | {card.set.series} - {card.set.name} | -->
+            </thead>
+            <tbody>
+            {#each Object.entries(groupedBySet) as [set, cards]}
+                <tr>
+                    <th colspan="3">{set}</th>
                 </tr>
+                {#each cards as card}
+                    <tr on:click={() => goto(base + "/guess/" + btoa(card.id))} class="clickable">
+                        <td>{card.name}</td>
+                        <td>{card.flavorText}</td>
+                        <td>{card?.attacks?.map(value => value.name).reduce((previousValue, currentValue) => previousValue + ", " + currentValue) || ''}</td>
+                        <!--{card.id} | {card.name} | {card.flavorText} | {card.set.series} - {card.set.name} | -->
+                    </tr>
+                {/each}
+
             {/each}
-
-        {/each}
-        </tbody>
-    </table>
-
-    <div class="page-number-selector">
-        <button on:click={previousPage} disabled='{pageNumber <= 1}'>Previous</button>
-        <span>Page {pageNumber} of {amountOfPages}</span>
-        <button on:click={nextPage} disabled='{pageNumber >= amountOfPages}'>Next</button>
+            </tbody>
+        </table>
+        <div class="page-number-selector">
+            <button on:click={previousPage} disabled='{pageNumber <= 1}'>Previous</button>
+            <span>Page {pageNumber} of {amountOfPages}</span>
+            <button on:click={nextPage} disabled='{pageNumber >= amountOfPages}'>Next</button>
+        </div>
     </div>
 {:else if haveSearched}
     No results found

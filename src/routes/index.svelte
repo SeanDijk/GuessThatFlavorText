@@ -13,7 +13,7 @@
 <div class="column image-button-box">
     <img alt="Quizmaster image" src={quizmaster}/>
     <a href="{base}/search" class="button-red">
-        I am the quizmaster
+        Search a card
     </a>
 </div>
 
