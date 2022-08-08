@@ -7,8 +7,7 @@
     export let showAnswer = false
     export let card
 
-    const answerString = `The card was ${card.name} from ${card.set.name}!`
-
+    $: answerString = `The card was ${card?.name} from ${card?.set.name}!`
     $: show = showAnswer || guessedCorrectly
 
     function getMessage() {
@@ -46,27 +45,29 @@
 
 </style>
 
-<div class="column">
-    {#if show === true}
-        The card was {card.name} from {card.set.name}!
-    {:else }
-        Try again or reveal the answer.
-    {/if}
+{#if card}
+    <div class="column">
+        {#if show === true}
+            The card was {card.name} from {card.set.name}!
+        {:else }
+            Try again or reveal the answer.
+        {/if}
 
-    <div class="cardImg" on:click={() => showAnswer = true}>
-        <Flippable showFront={show} animate={!guessedCorrectly} flipOnClick="{!guessedCorrectly}">
-            <img slot="front" src="{card.images.large}"/>
-            <img slot="back" src="{cardBack}"/>
-        </Flippable>
+        <div class="cardImg" on:click={() => showAnswer = true}>
+            <Flippable showFront={show} animate={!guessedCorrectly} flipOnClick="{!guessedCorrectly}">
+                <img slot="front" src="{card.images.large}"/>
+                <img slot="back" src="{cardBack}"/>
+            </Flippable>
+        </div>
+
+        {#if show === true}
+            <div class="row buttons">
+                <a class="button-red-small" href="{base}/guess/random">New flavor text</a>
+            </div>
+        {:else }
+            <div class="row buttons">
+                <button class="button-red-small" on:click={() => showAnswer = true}>Show answer</button>
+            </div>
+        {/if}
     </div>
-
-    {#if show === true}
-        <div class="row buttons">
-            <a class="button-red-small" href="{base}/guess/random">New flavor text</a>
-        </div>
-    {:else }
-        <div class="row buttons">
-            <button class="button-red-small" on:click={() => showAnswer = true}>Show answer</button>
-        </div>
-    {/if}
-</div>
+{/if  }

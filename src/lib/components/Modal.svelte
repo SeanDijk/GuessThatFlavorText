@@ -8,23 +8,33 @@
     export function showModal() {
         dialog.showModal()
         // This causes a bug if the model is not closed, but for instance deleted.
-        document.querySelector('body').style.overflowY = 'hidden'
+        // document.querySelector('body').style.overflowY = 'hidden'
     }
 
     export function close() {
-        console.log("asd")
-        dialog.addEventListener('webkitAnimationEnd', (arg) =>{
-            console.log(arg)
-            if (arg.animationName.includes('hide')) {
-                closing = false
-                dialog.close();
-                dialog.removeEventListener('webkitAnimationEnd', arg.callee, false);
-                document.querySelector('body').style.overflowY = ''
-            }
-        }, false);
-        closing = true
+        console.log(dialog)
+        if (!dialog.open) {
+            return Promise.resolve()
+        }
 
-        // dialog.close()
+        return new Promise(function (resolve) {
+            console.log("Add the event listener")
+            dialog.addEventListener('webkitAnimationEnd', (arg) => {
+                if (arg.animationName.includes('hide') && arg.pseudoElement === '') {
+                    closing = false
+                    dialog.close();
+                    console.log("Remove the event listener")
+                    dialog.removeEventListener('webkitAnimationEnd', arg.callee, false);
+                    document.querySelector('body').style.overflowY = ''
+                    resolve()
+                }
+            }, false);
+            closing = true
+        })
+    }
+
+    export function closeNow() {
+        dialog.close();
     }
 
     function closeOutside(event) {
@@ -44,6 +54,7 @@
         max-width: 90%;
         max-height: 90%;
     }
+
     .dialog::backdrop {
         background-color: rgba(0, 0, 0, 0.70);
     }
@@ -52,7 +63,7 @@
         -webkit-animation: show .5s ease normal;
     }
 
-    .close-dialog, .close-dialog::backdrop{
+    .close-dialog, .close-dialog::backdrop {
         -webkit-animation: hide .5s ease normal;
     }
 

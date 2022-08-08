@@ -6,10 +6,14 @@
 
     export let card;
 
-    function reloadCard() {
-        PokemonApiService.getRandomCard().then(value => {
-            card = value
-        })
+    let guessComponent;
+
+    async function reloadCard() {
+        let dialogClose = guessComponent?.getDialog()?.close() ?? await Promise.resolve()
+        let newCard = PokemonApiService.getRandomCard()
+        await dialogClose
+        card = null
+        card = await newCard
     }
 
     if (card == null) {
@@ -26,6 +30,7 @@
     })
 </script>
 
-    {#key card}
-        <CardGuess card={card}></CardGuess>
-    {/key}
+<div>
+    <CardGuess card={card} bind:this={guessComponent}></CardGuess>
+</div>
+

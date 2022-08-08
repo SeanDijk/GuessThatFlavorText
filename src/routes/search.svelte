@@ -92,12 +92,12 @@
 
 <style>
     .form-grid {
+        box-sizing: border-box;
         display: grid;
-        grid-template-columns: 200px 1fr;
+        grid-template-columns: 100px 1fr;
         grid-gap: 16px;
         width: 100%;
-        padding-top: 16px;
-        padding-bottom: 16px;
+        padding: 16px 8px;
     }
 
     label {
@@ -135,6 +135,12 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    @media only screen and (min-width: 768px) {
+        .form-grid {
+            grid-template-columns: 200px 1fr;
+        }
     }
 </style>
 

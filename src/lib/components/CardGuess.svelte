@@ -3,12 +3,19 @@
     import Lifeline from '$lib/components/Lifeline.svelte'
     import Result from '$lib/components/Result.svelte'
     import Modal from '$lib/components/Modal.svelte'
+    import StaticFade from "$lib/components/StaticFade.svelte";
     import GuessService from '$lib/js/GuessService.js'
 
     export let card = null
+
     let givenAnswer = "";
     let guessedCorrectly = false;
     let resultDialog
+
+    export function getDialog() {
+        console.info(`getDialog returns ${resultDialog}`)
+        return resultDialog
+    }
 
     function checkAnswer() {
         return GuessService.matchesAnswer(givenAnswer, card.name)
@@ -26,6 +33,7 @@
     }
 
     .flavor-text {
+        display: inline;
         font-size: 1.5em;
         text-align: center;
         border: black solid 2px;
@@ -77,48 +85,55 @@
         <LoadingIcon/>
     {/if}
 
-        {#if card}
-            <q class="flavor-text">{(card.flavorText + "").replace(card.name, 'BLANK')}</q>
+    <StaticFade key={card}>
+        <div class="column">
+            {#if card}
+                <q class="flavor-text">{(card.flavorText + "").replace(card.name, 'BLANK')}</q>
+                {#key card}
+                    <form class="row guess-form" on:submit|preventDefault={processAnswer}>
+                        <input bind:value={givenAnswer} type="text" placeholder="Your guess..."/>
+                        <button type="submit" class="button-red-small">Submit</button>
+                    </form>
 
-            <form class="row guess-form" on:submit|preventDefault={processAnswer}>
-                <input bind:value={givenAnswer} type="text" placeholder="Your guess..."/>
-                <button type="submit" class="button-red-small">Submit</button>
-            </form>
-
-            <h1>Lifelines</h1>
-            <div class="column">
-                <Lifeline buttonText="Show set">
-                    <fieldset class="answer">
-                        <legend>{card.set.name} <img src="{card.set.images.symbol}" class="set-icon"></legend>
-                        <img src="{card.set.images.logo}" class="set-logo">
-                    </fieldset>
-                </Lifeline>
-                <Lifeline buttonText="Show stage">
-                    <fieldset class="answer">
-                        <legend>Stage</legend>
-                        {card.subtypes.find(element => element === "Basic" || element.startsWith("Stage"))}
-                    </fieldset>
-                </Lifeline>
-                <Lifeline buttonText="Show attack">
-                    <fieldset class="answer">
-                        <legend>Attack name</legend>
-                        {card.attacks[Math.floor(Math.random() * card.attacks.length)].name}
-                    </fieldset>
-                </Lifeline>
-            </div>
-            <Modal bind:this={resultDialog} mobileFullScreen={true}>
-            <span slot="title">
-                {#if (guessedCorrectly)}
-                You were right!
-                {:else}
-                Wrong guess!
-                {/if}
-            </span>
-                <Result slot="body"
-                        card={card}
-                        guessedCorrectly={guessedCorrectly}
-                >
-                </Result>
-            </Modal>
-        {/if}
+                    <h1>Lifelines</h1>
+                    <div class="column">
+                        <Lifeline buttonText="Show set">
+                            <fieldset class="answer">
+                                <legend>{card.set.name} <img src="{card.set.images.symbol}" class="set-icon"></legend>
+                                <img src="{card.set.images.logo}" class="set-logo">
+                            </fieldset>
+                        </Lifeline>
+                        <Lifeline buttonText="Show stage">
+                            <fieldset class="answer">
+                                <legend>Stage</legend>
+                                {card.subtypes.find(element => element === "Basic" || element.startsWith("Stage"))}
+                            </fieldset>
+                        </Lifeline>
+                        <Lifeline buttonText="Show attack">
+                            <fieldset class="answer">
+                                <legend>Attack name</legend>
+                                {card.attacks[Math.floor(Math.random() * card.attacks.length)].name}
+                            </fieldset>
+                        </Lifeline>
+                    </div>
+                {/key}
+            {/if}
+        </div>
+    </StaticFade>
+    {#key card}
+        <Modal bind:this={resultDialog} mobileFullScreen={true}>
+                        <span slot="title">
+                            {#if (guessedCorrectly)}
+                            You were right!
+                            {:else}
+                            Wrong guess!
+                            {/if}
+                        </span>
+            <Result slot="body"
+                    card={card}
+                    guessedCorrectly={guessedCorrectly}
+            >
+            </Result>
+        </Modal>
+    {/key}
 </div>
