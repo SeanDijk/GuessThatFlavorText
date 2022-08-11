@@ -1,4 +1,5 @@
 <script context="module">
+    // Wellicht kan als het een en anders naar onMount gaat, deze wel geprerenderd worden
     export const prerender = false;
 </script>
 <script>
@@ -106,7 +107,6 @@
 
     input, textarea {
         grid-column: 2 / 3;
-
     }
 
     th {
