@@ -18,6 +18,21 @@
         }
     }
 
+    function share() {
+        let shareData = {
+            title: 'Guess that flavor text',
+            text: 'Guess what Pokémon this is',
+            url: `www.test.html/${base}/guess/${card.id}`
+        }
+
+        if(navigator.share) {
+            navigator.share(shareData)
+        } else {
+            alert(navigator);
+            // TODO copy to clipboard
+        }
+    }
+
     $: message = getMessage()
 </script>
 
@@ -63,6 +78,7 @@
         {#if show === true}
             <div class="row buttons">
                 <a class="button-red-small" href="{base}/guess/random">New flavor text</a>
+                <button class="button-red-small" on:click={share}>Share</button>
             </div>
         {:else }
             <div class="row buttons">

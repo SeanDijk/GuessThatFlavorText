@@ -1,5 +1,14 @@
 <script>
     import {base} from '$app/paths';
+    import HamburgerMenu from "$lib/components/HamburgerMenu.svelte";
+    import {afterNavigate} from '$app/navigation';
+    import {fade} from 'svelte/transition';
+
+    let hamburgerMenu
+
+    afterNavigate(navigation => {
+        hamburgerMenu.close()
+    })
 </script>
 <style>
     @import url('$lib/css/buttons.css');
@@ -47,45 +56,34 @@
     }
 
     .menu {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .menu > summary {
-        list-style-type: '☰️';
-        font-size: .5em;
-        height: 48px;
-        width: 48px;
-    }
-
-    .menu[open] > summary {
-        list-style-type: 'x';
-        font-size: 1em;
-    }
-
-    .menu-container {
         position: absolute;
-        top: 60px;
+        /* header height + padding + border */
+        top: 65px;
         left: 0;
 
         box-sizing: border-box;
         padding: 8px;
+        width: 100%;
         border-style: solid;
-        border-bottom-width: 5px;
+        background-color: white;
     }
-
-
-
-
 
     .nav-link {
-        height: 100%;
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 
-    .nav-link:hover {
+    .nav-link:focus:before {
+        content: '> ';
+    }
 
+    .hamburger-menu {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     @media only screen and (min-width: 768px) {
@@ -97,12 +95,15 @@
 </style>
 <header>
     <a href="{base}/" class="home">Guess That Flavor Text</a>
-        <details class="menu">
-            <summary></summary>
-            <div class="menu-container">
+    <div class="hamburger-menu">
+        <HamburgerMenu bind:this={hamburgerMenu}>
+            <div class="menu" transition:fade>
                 <a href="{base}/about" class="nav-link">About</a>
+                <a href="{base}/search" class="nav-link">Search a card</a>
+                <a href="{base}/guess/random" class="nav-link">Guess random card</a>
             </div>
-        </details>
+        </HamburgerMenu>
+    </div>
 </header>
 
 <div class="content">
