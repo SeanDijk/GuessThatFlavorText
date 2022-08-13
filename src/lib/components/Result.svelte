@@ -1,11 +1,13 @@
 <script>
     import {base} from "$app/paths";
     import cardBack from '$lib/images/pokemon_card_back.png'
-    import Flippable from "./Flippable.svelte";
+    import Flippable from "$lib/components/Flippable.svelte";
+    import Message from "$lib/components/Message.svelte";
 
     export let guessedCorrectly = false
     export let showAnswer = false
     export let card
+    let message
 
     $: answerString = `The card was ${card?.name} from ${card?.set.name}!`
     $: show = showAnswer || guessedCorrectly
@@ -21,15 +23,20 @@
     function share() {
         let shareData = {
             title: 'Guess that flavor text',
-            text: 'Guess what Pokémon this is',
-            url: `www.test.html/${base}/guess/${card.id}`
+            text: 'Guess what Pokémon this is!',
+            url: `${window.location.origin}/guess/${btoa(card.id)}`
         }
 
         if(navigator.share) {
             navigator.share(shareData)
-        } else {
-            alert(navigator);
-            // TODO copy to clipboard
+        }
+        else {
+            navigator.clipboard.writeText(shareData.url).then(function() {
+                console.log('Async: Copying to clipboard was successful!');
+                message.show()
+            }, function(err) {
+                console.error('Async: Could not copy text: ', err);
+            });
         }
     }
 
@@ -86,4 +93,7 @@
             </div>
         {/if}
     </div>
-{/if  }
+    <Message bind:this={message}>
+        Copied link to clipboard
+    </Message>
+{/if}

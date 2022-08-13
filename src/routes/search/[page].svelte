@@ -12,7 +12,6 @@
 </script>
 
 <script>
-    // TODO page in de q params opnemen
     import {page} from "$app/stores";
     import {groupBy} from 'lodash';
     import {goto} from "$app/navigation";

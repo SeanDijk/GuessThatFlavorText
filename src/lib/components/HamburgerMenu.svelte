@@ -27,29 +27,6 @@
 </script>
 
 <style>
-
-    .icon-button {
-        all: unset;
-        box-sizing: border-box;
-        padding: 8px;
-        height: 32px;
-        width: 32px;
-        font-size: .4em;
-        cursor: pointer;
-    }
-
-    .icon-button:focus {
-        outline-color: Highlight;
-        outline-color: -webkit-focus-ring-color;
-        outline-style: auto;
-        outline-width: 1px;
-    }
-
-    .icon-button > img {
-        width: 100%;
-        height: 100%;
-    }
-
     .container {
         display: flex;
     }
