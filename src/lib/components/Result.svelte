@@ -24,7 +24,7 @@
         let shareData = {
             title: 'Guess that flavor text',
             text: 'Guess what Pokémon this is!',
-            url: `${window.location.origin}/guess/${btoa(card.id)}`
+            url: `${window.location.origin}/guess?cardId=${btoa(card.id)}`
         }
 
         if(navigator.share) {

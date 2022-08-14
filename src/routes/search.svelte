@@ -209,7 +209,7 @@
                     <th colspan="3">{set}</th>
                 </tr>
                 {#each cards as card}
-                    <tr on:click={() => goto(base + "/guess/" + btoa(card.id))} class="clickable">
+                    <tr on:click={() => goto(base + "/guess?cardId=" + btoa(card.id))} class="clickable">
                         <td>{card.name}</td>
                         <td>{card.flavorText}</td>
                         <td>{card?.attacks?.map(value => value.name).reduce((previousValue, currentValue) => previousValue + ", " + currentValue) || ''}</td>
