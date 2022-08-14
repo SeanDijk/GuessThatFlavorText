@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/GuessThatFlavorText/fonts/pokemon_fire_red.ttf">
+    <script async defer data-website-id="1adf6fa2-5c5b-4f36-bf69-8b367ffb810e" src="https://unami-guess-that-flavor-text.herokuapp.com/umami.js"></script>
+    <link rel="stylesheet" href="./fonts/pokemon_fire_red.ttf">
     <style>
-        @font-face {
-            font-family: 'Pokemon Fire Red';
-            src: url('/GuessThatFlavorText/fonts/pokemon_fire_red.woff') format("woff"),
-            url('/GuessThatFlavorText/fonts/pokemon_fire_red.ttf') format("truetype");
-        }
-
         body {
             padding: 0;
             margin: 0;
             font-family: "Pokemon Fire Red", serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         input {
@@ -20,42 +18,61 @@
             font-family: "Pokemon Fire Red", serif;
         }
 
+        button {
+            font-family: "Pokemon Fire Red", serif;
+        }
+
     </style>
     <meta charset="utf-8"/>
-    <link rel="icon" href="/GuessThatFlavorText/favicon.png"/>
+    <link rel="icon" href="./favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Guess That Flavor Text</title>
     <meta http-equiv="content-security-policy" content="">
-	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/__layout-9bba926b.css">
-	<link rel="stylesheet" href="/GuessThatFlavorText/_app/immutable/assets/index-4949549e.css">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/start-9bb45689.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/index-621a1bb0.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/paths-b9644fda.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/chunks/singletons-eca981c1.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/pages/__layout.svelte-5e1611ff.js">
-	<link rel="modulepreload" href="/GuessThatFlavorText/_app/immutable/pages/index.svelte-fca90f66.js">
+	<link rel="stylesheet" href="/_app/immutable/assets/__layout-a6165297.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/index-7b6f9720.css">
+	<link rel="modulepreload" href="/_app/immutable/start-144617d1.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-2cb11f61.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/paths-b9644fda.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-eca981c1.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-bb8dc4cf.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/close-icon-2ac8c1d9.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/navigation-fbe70647.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-854bf481.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/index.svelte-9ed8cb11.js">
 </head>
 <body>
 
 
 
 
-<header class="svelte-sn5h3u"><a href="/GuessThatFlavorText" class="link svelte-sn5h3u">Guess That Flavor Text</a></header>
-<div class="column image-button-box svelte-142dklr"><img alt="Quizmaster image" src="/GuessThatFlavorText/_app/immutable/assets/blainesquiz1-08519d31.png">
-    <a href="/GuessThatFlavorText/search" class="button-red">I am the quizmaster
-    </a></div>
+<header class="svelte-1ozqygl"><a href="/" class="home svelte-1ozqygl">Guess That Flavor Text</a>
+    <div class="hamburger-menu svelte-1ozqygl"><div class="container svelte-zpeot5"><button class="icon-button svelte-zpeot5"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUVaROwgIpKhOlkQFdFNq1CECqFWaNXB5NIPoUlD0uLiKLgWHPxYrDq4OOvq4CoIgh8gjk5Oii5S4v+SQosYD4778e7e4+4dINRLTLM6RgFNr5ipRFzMZFfEwCuCCKMH0xiUmWXMSlISnuPrHj6+3sV4lve5P0dYzVkM8InEM8wwK8TrxJObFYPzPnGEFWWV+Jx4xKQLEj9yXXH5jXPBYYFnRsx0ao44QiwW2lhpY1Y0NeIJ4qiq6ZQvZFxWOW9x1kpV1rwnf2Eopy8vcZ3mABJYwCIkiFBQxQZKqCBGq06KhRTtxz38/Y5fIpdCrg0wcsyjDA2y4wf/g9/dWvnxMTcpFAc6X2z7YwgI7AKNmm1/H9t24wTwPwNXestfrgNTn6TXWlr0COjeBi6uW5qyB1zuAH1PhmzKjuSnKeTzwPsZfVMW6L0Fulbd3pr7OH0A0tRV8gY4OASGC5S95vHuYHtv/55p9vcDp3pyvA5XMSIAAAAGYktHRAAkAA0A/+jYTmUAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfmCA0SDxxC6Pa9AAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAKxJREFUeNrt2cENwyAQBMAjxi3QCx9q8CN9pAf6SBo1FinkZiUKuJE4Ibb03vd935Ex53lGtNZ2RKQ8rbX9iuQBAAAAgNSpEfHLDFD23q4AAAAAAAAAAAAAAAAAAAAAAABAptQ55zvrr1ApRTVmBwAAAAAAgMwPoeu6Ps/zpBz+OA7doB0AAAAAAAAAAAAAAAAAAAAAAEiXMsb4rrVSDl9r1Q3aAQAAAAAAIHH+U2XaGw9mO5sAAAAASUVORK5CYII=" alt="Open menu"></button>
+
+    </div></div></header>
+
+<div class="content svelte-1ozqygl"><div class="container svelte-lrqrid"><div class="column image-button-box svelte-lrqrid"><img alt="Quizmaster image" src="/_app/immutable/assets/blainesquiz1-08519d31.png">
+        <a href="/search" class="button-red">Search a card
+        </a></div>
 
 
-<div class="column image-button-box svelte-142dklr"><img alt="Guess a card image" src="/GuessThatFlavorText/_app/immutable/assets/blainesquiz3-f5689908.png">
-    <a href="/GuessThatFlavorText/guess/random" class="button-red">Guess a random card
-    </a></div>
+    <div class="column image-button-box svelte-lrqrid"><img alt="Guess a card image" src="/_app/immutable/assets/blainesquiz3-f5689908.png">
+        <a href="/guess/random" class="button-red">Guess a random card
+        </a></div></div></div>
+
+<footer class="svelte-1ozqygl">Pokémon and All Respective Names are Trademark &amp; © of Nintendo 1996-2022.
+
+    This website is not produced by, endorsed by, supported by, or affiliated with Nintendo, The Pokémon Company
+    International, GAMEFREAK, or Uncommon Energy Podcast.
+    <br>
+    All other content © 2022 GuessThatFlavorText.
+</footer>
 
 
-		<script type="module" data-sveltekit-hydrate="rl7twq">
-		import { start } from "/GuessThatFlavorText/_app/immutable/start-9bb45689.js";
+		<script type="module" data-sveltekit-hydrate="1byrxoj">
+		import { start } from "/_app/immutable/start-144617d1.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="rl7twq"]').parentNode,
-			paths: {"base":"/GuessThatFlavorText","assets":"/GuessThatFlavorText"},
+			target: document.querySelector('[data-sveltekit-hydrate="1byrxoj"]').parentNode,
+			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
 			spa: false,
@@ -63,7 +80,7 @@
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 4],
+				nodes: [0, 5],
 				params: {},
 				routeId: ""
 			}

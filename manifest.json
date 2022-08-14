@@ -1,4 +1,12 @@
 {
+  "src/lib/images/GitHub-Mark-120px-plus.png": {
+    "file": "_app/immutable/assets/GitHub-Mark-120px-plus-78981108.png",
+    "src": "src/lib/images/GitHub-Mark-120px-plus.png"
+  },
+  "src/lib/images/twitter.svg": {
+    "file": "_app/immutable/assets/twitter-f6981003.svg",
+    "src": "src/lib/images/twitter.svg"
+  },
   "src/lib/images/blainesquiz1.png": {
     "file": "_app/immutable/assets/blainesquiz1-08519d31.png",
     "src": "src/lib/images/blainesquiz1.png"
@@ -24,37 +32,41 @@
     "src": "src/lib/images/pokemon_diamond_button_1_active.png"
   },
   ".svelte-kit/runtime/client/start.js": {
-    "file": "_app/immutable/start-9bb45689.js",
+    "file": "_app/immutable/start-144617d1.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-621a1bb0.js",
+      "_index-2cb11f61.js",
       "_paths-b9644fda.js",
       "_singletons-eca981c1.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
       ".svelte-kit/runtime/components/error.svelte",
+      "src/routes/about.svelte",
       "src/routes/guess/[b64CardId].svelte",
       "src/routes/guess/random.svelte",
       "src/routes/index.svelte",
-      "src/routes/search/[page].svelte",
       "src/routes/search.svelte",
       "src/routes/testFlipable.svelte",
       "src/routes/testResult.svelte"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "_app/immutable/pages/__layout.svelte-5e1611ff.js",
+    "file": "_app/immutable/pages/__layout.svelte-bb8dc4cf.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-621a1bb0.js",
-      "_paths-b9644fda.js"
+      "_index-2cb11f61.js",
+      "_paths-b9644fda.js",
+      "_close-icon-2ac8c1d9.js",
+      "_navigation-fbe70647.js",
+      "_index-854bf481.js",
+      "_singletons-eca981c1.js"
     ],
     "css": [
-      "_app/immutable/assets/__layout-9bba926b.css"
+      "_app/immutable/assets/__layout-a6165297.css"
     ],
     "assets": [
       "_app/immutable/assets/pokemon_diamond_button_1-701bbc7f.png",
@@ -63,128 +75,128 @@
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "_app/immutable/error.svelte-9d6d7553.js",
+    "file": "_app/immutable/error.svelte-3e328213.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-621a1bb0.js"
+      "_index-2cb11f61.js"
+    ]
+  },
+  "src/routes/about.svelte": {
+    "file": "_app/immutable/pages/about.svelte-ee204948.js",
+    "src": "src/routes/about.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-2cb11f61.js"
+    ],
+    "css": [
+      "_app/immutable/assets/about-8a7bf195.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/GitHub-Mark-120px-plus-78981108.png",
+      "_app/immutable/assets/twitter-f6981003.svg"
     ]
   },
   "src/routes/guess/[b64CardId].svelte": {
-    "file": "_app/immutable/pages/guess/_b64CardId_.svelte-2263bd47.js",
+    "file": "_app/immutable/pages/guess/_b64CardId_.svelte-f4ef5b0e.js",
     "src": "src/routes/guess/[b64CardId].svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-621a1bb0.js",
-      "_PokemonApiService-1b5e6158.js",
-      "_stores-f7a11356.js",
-      "_CardGuess-1c16f4a7.js",
-      "_LoadingIcon-a0a29feb.js",
-      "_Modal.svelte_svelte_type_style_lang-7642ac20.js",
+      "_index-2cb11f61.js",
+      "_LoadingIcon-c8510d68.js",
+      "_stores-29074430.js",
+      "_CardGuess-c6615660.js",
+      "_index-854bf481.js",
+      "_Modal.svelte_svelte_type_style_lang-a6861bc3.js",
       "_paths-b9644fda.js",
-      "_Flippable-c0cd92ac.js"
+      "_Flippable-6fc86018.js",
+      "_close-icon-2ac8c1d9.js"
     ]
   },
   "src/routes/guess/random.svelte": {
-    "file": "_app/immutable/pages/guess/random.svelte-1a4d62eb.js",
+    "file": "_app/immutable/pages/guess/random.svelte-917736a0.js",
     "src": "src/routes/guess/random.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-621a1bb0.js",
-      "_navigation-e4734af4.js",
+      "_index-2cb11f61.js",
+      "_navigation-fbe70647.js",
       "_paths-b9644fda.js",
-      "_CardGuess-1c16f4a7.js",
-      "_PokemonApiService-1b5e6158.js",
+      "_CardGuess-c6615660.js",
+      "_LoadingIcon-c8510d68.js",
       "_singletons-eca981c1.js",
-      "_LoadingIcon-a0a29feb.js",
-      "_Modal.svelte_svelte_type_style_lang-7642ac20.js",
-      "_Flippable-c0cd92ac.js"
+      "_index-854bf481.js",
+      "_Modal.svelte_svelte_type_style_lang-a6861bc3.js",
+      "_Flippable-6fc86018.js",
+      "_close-icon-2ac8c1d9.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "_app/immutable/pages/index.svelte-fca90f66.js",
+    "file": "_app/immutable/pages/index.svelte-9ed8cb11.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-621a1bb0.js",
+      "_index-2cb11f61.js",
       "_paths-b9644fda.js"
     ],
     "css": [
-      "_app/immutable/assets/index-4949549e.css"
+      "_app/immutable/assets/index-7b6f9720.css"
     ],
     "assets": [
       "_app/immutable/assets/blainesquiz1-08519d31.png",
       "_app/immutable/assets/blainesquiz3-f5689908.png"
     ]
   },
-  "src/routes/search/[page].svelte": {
-    "file": "_app/immutable/pages/search/_page_.svelte-6539d0a6.js",
-    "src": "src/routes/search/[page].svelte",
-    "isEntry": true,
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-621a1bb0.js",
-      "_PokemonApiService-1b5e6158.js",
-      "_stores-f7a11356.js",
-      "_lodash-4138efbc.js",
-      "_navigation-e4734af4.js",
-      "_paths-b9644fda.js",
-      "_singletons-eca981c1.js"
-    ],
-    "css": [
-      "_app/immutable/assets/[page]-1e2748f4.css"
-    ]
-  },
   "src/routes/search.svelte": {
-    "file": "_app/immutable/pages/search.svelte-1a739334.js",
+    "file": "_app/immutable/pages/search.svelte-8ea40897.js",
     "src": "src/routes/search.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-621a1bb0.js",
-      "_PokemonApiService-1b5e6158.js",
-      "_stores-f7a11356.js",
-      "_lodash-4138efbc.js",
-      "_navigation-e4734af4.js",
+      "_index-2cb11f61.js",
+      "_LoadingIcon-c8510d68.js",
+      "_stores-29074430.js",
+      "_navigation-fbe70647.js",
       "_paths-b9644fda.js",
-      "_LoadingIcon-a0a29feb.js",
+      "_index-854bf481.js",
       "_singletons-eca981c1.js"
     ],
     "css": [
-      "_app/immutable/assets/search-e39c03cf.css"
+      "_app/immutable/assets/search-3c413791.css"
     ]
   },
   "src/routes/testFlipable.svelte": {
-    "file": "_app/immutable/pages/testFlipable.svelte-74bcbaf5.js",
+    "file": "_app/immutable/pages/testFlipable.svelte-b3d47c40.js",
     "src": "src/routes/testFlipable.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-621a1bb0.js",
-      "_Flippable-c0cd92ac.js"
+      "_index-2cb11f61.js",
+      "_Flippable-6fc86018.js"
     ],
     "css": [
       "_app/immutable/assets/testFlipable-197b120d.css"
     ]
   },
   "src/routes/testResult.svelte": {
-    "file": "_app/immutable/pages/testResult.svelte-98b924bf.js",
+    "file": "_app/immutable/pages/testResult.svelte-7456806a.js",
     "src": "src/routes/testResult.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-621a1bb0.js",
-      "_Modal.svelte_svelte_type_style_lang-7642ac20.js",
+      "_index-2cb11f61.js",
+      "_Modal.svelte_svelte_type_style_lang-a6861bc3.js",
       "_paths-b9644fda.js",
-      "_Flippable-c0cd92ac.js"
+      "_Flippable-6fc86018.js",
+      "_index-854bf481.js"
     ]
   },
-  "_index-621a1bb0.js": {
-    "file": "_app/immutable/chunks/index-621a1bb0.js"
+  "_index-2cb11f61.js": {
+    "file": "_app/immutable/chunks/index-2cb11f61.js"
   },
   "_paths-b9644fda.js": {
     "file": "_app/immutable/chunks/paths-b9644fda.js"
@@ -192,50 +204,66 @@
   "_singletons-eca981c1.js": {
     "file": "_app/immutable/chunks/singletons-eca981c1.js"
   },
-  "_PokemonApiService-1b5e6158.js": {
-    "file": "_app/immutable/chunks/PokemonApiService-1b5e6158.js"
-  },
-  "_stores-f7a11356.js": {
-    "file": "_app/immutable/chunks/stores-f7a11356.js",
+  "_navigation-fbe70647.js": {
+    "file": "_app/immutable/chunks/navigation-fbe70647.js",
     "imports": [
-      "_index-621a1bb0.js"
+      "_singletons-eca981c1.js"
     ]
   },
-  "_CardGuess-1c16f4a7.js": {
-    "file": "_app/immutable/chunks/CardGuess-1c16f4a7.js",
+  "_index-854bf481.js": {
+    "file": "_app/immutable/chunks/index-854bf481.js",
     "imports": [
-      "_index-621a1bb0.js",
-      "_LoadingIcon-a0a29feb.js",
-      "_Modal.svelte_svelte_type_style_lang-7642ac20.js"
+      "_index-2cb11f61.js"
+    ]
+  },
+  "_close-icon-2ac8c1d9.js": {
+    "file": "_app/immutable/chunks/close-icon-2ac8c1d9.js"
+  },
+  "_LoadingIcon-c8510d68.js": {
+    "file": "_app/immutable/chunks/LoadingIcon-c8510d68.js",
+    "imports": [
+      "_index-2cb11f61.js",
+      "_index-854bf481.js"
     ],
     "css": [
-      "_app/immutable/assets/CardGuess-fbf39270.css"
+      "_app/immutable/assets/LoadingIcon-a6563f92.css"
     ]
   },
-  "_LoadingIcon-a0a29feb.js": {
-    "file": "_app/immutable/chunks/LoadingIcon-a0a29feb.js",
+  "_stores-29074430.js": {
+    "file": "_app/immutable/chunks/stores-29074430.js",
     "imports": [
-      "_index-621a1bb0.js"
+      "_index-2cb11f61.js"
+    ]
+  },
+  "_CardGuess-c6615660.js": {
+    "file": "_app/immutable/chunks/CardGuess-c6615660.js",
+    "imports": [
+      "_index-2cb11f61.js",
+      "_LoadingIcon-c8510d68.js",
+      "_index-854bf481.js",
+      "_Modal.svelte_svelte_type_style_lang-a6861bc3.js",
+      "_close-icon-2ac8c1d9.js"
     ],
     "css": [
-      "_app/immutable/assets/LoadingIcon-0c1c4b3d.css"
+      "_app/immutable/assets/CardGuess-3948496c.css"
     ]
   },
-  "_Modal.svelte_svelte_type_style_lang-7642ac20.js": {
-    "file": "_app/immutable/chunks/Modal.svelte_svelte_type_style_lang-7642ac20.js",
+  "_Modal.svelte_svelte_type_style_lang-a6861bc3.js": {
+    "file": "_app/immutable/chunks/Modal.svelte_svelte_type_style_lang-a6861bc3.js",
     "imports": [
-      "_index-621a1bb0.js",
+      "_index-2cb11f61.js",
       "_paths-b9644fda.js",
-      "_Flippable-c0cd92ac.js"
+      "_Flippable-6fc86018.js",
+      "_index-854bf481.js"
     ],
     "css": [
-      "_app/immutable/assets/Modal-d6d6bca7.css"
+      "_app/immutable/assets/Modal-68644852.css"
     ]
   },
-  "_Flippable-c0cd92ac.js": {
-    "file": "_app/immutable/chunks/Flippable-c0cd92ac.js",
+  "_Flippable-6fc86018.js": {
+    "file": "_app/immutable/chunks/Flippable-6fc86018.js",
     "imports": [
-      "_index-621a1bb0.js"
+      "_index-2cb11f61.js"
     ],
     "css": [
       "_app/immutable/assets/Flippable-b72d7983.css"
@@ -244,52 +272,40 @@
       "_app/immutable/assets/pokemon_card_back-2800398f.png"
     ]
   },
-  "_navigation-e4734af4.js": {
-    "file": "_app/immutable/chunks/navigation-e4734af4.js",
-    "imports": [
-      "_singletons-eca981c1.js"
-    ]
-  },
-  "_lodash-4138efbc.js": {
-    "file": "_app/immutable/chunks/lodash-4138efbc.js",
-    "imports": [
-      "_PokemonApiService-1b5e6158.js"
-    ]
-  },
-  "CardGuess.css": {
-    "file": "_app/immutable/assets/CardGuess-fbf39270.css",
-    "src": "CardGuess.css"
-  },
   "LoadingIcon.css": {
-    "file": "_app/immutable/assets/LoadingIcon-0c1c4b3d.css",
+    "file": "_app/immutable/assets/LoadingIcon-a6563f92.css",
     "src": "LoadingIcon.css"
   },
-  "Modal.css": {
-    "file": "_app/immutable/assets/Modal-d6d6bca7.css",
-    "src": "Modal.css"
+  "src/routes/about.css": {
+    "file": "_app/immutable/assets/about-8a7bf195.css",
+    "src": "src/routes/about.css"
   },
   "src/routes/__layout.css": {
-    "file": "_app/immutable/assets/__layout-9bba926b.css",
+    "file": "_app/immutable/assets/__layout-a6165297.css",
     "src": "src/routes/__layout.css"
   },
   "Flippable.css": {
     "file": "_app/immutable/assets/Flippable-b72d7983.css",
     "src": "Flippable.css"
   },
-  "src/routes/index.css": {
-    "file": "_app/immutable/assets/index-4949549e.css",
-    "src": "src/routes/index.css"
-  },
-  "src/routes/search.css": {
-    "file": "_app/immutable/assets/search-e39c03cf.css",
-    "src": "src/routes/search.css"
-  },
   "src/routes/testFlipable.css": {
     "file": "_app/immutable/assets/testFlipable-197b120d.css",
     "src": "src/routes/testFlipable.css"
   },
-  "src/routes/search/[page].css": {
-    "file": "_app/immutable/assets/[page]-1e2748f4.css",
-    "src": "src/routes/search/[page].css"
+  "Modal.css": {
+    "file": "_app/immutable/assets/Modal-68644852.css",
+    "src": "Modal.css"
+  },
+  "CardGuess.css": {
+    "file": "_app/immutable/assets/CardGuess-3948496c.css",
+    "src": "CardGuess.css"
+  },
+  "src/routes/index.css": {
+    "file": "_app/immutable/assets/index-7b6f9720.css",
+    "src": "src/routes/index.css"
+  },
+  "src/routes/search.css": {
+    "file": "_app/immutable/assets/search-3c413791.css",
+    "src": "src/routes/search.css"
   }
 }

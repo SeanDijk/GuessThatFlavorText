@@ -29,8 +29,8 @@
     <title>Guess That Flavor Text</title>
     <meta http-equiv="content-security-policy" content="">
 	<link rel="stylesheet" href="/_app/immutable/assets/__layout-a6165297.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Modal-68644852.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Flippable-b72d7983.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/search-3c413791.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/LoadingIcon-a6563f92.css">
 	<link rel="modulepreload" href="/_app/immutable/start-144617d1.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-2cb11f61.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/paths-b9644fda.js">
@@ -39,9 +39,9 @@
 	<link rel="modulepreload" href="/_app/immutable/chunks/close-icon-2ac8c1d9.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/navigation-fbe70647.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-854bf481.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/testResult.svelte-7456806a.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Modal.svelte_svelte_type_style_lang-a6861bc3.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Flippable-6fc86018.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/search.svelte-8ea40897.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/LoadingIcon-c8510d68.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/stores-29074430.js">
 </head>
 <body>
 
@@ -53,13 +53,22 @@
 
     </div></div></header>
 
-<div class="content svelte-1ozqygl"><div class="column">Try again or reveal the answer.
+<div class="content svelte-1ozqygl"><form><div class="form-grid svelte-1c3nn9x"><label for="name" class="field svelte-1c3nn9x">Name: </label>
+        <input id="name" placeholder="Pikachu" class="svelte-1c3nn9x">
 
-        <div class="cardImg svelte-r1zcyq"><div class="container svelte-k5yrj8"><div class="container-inner svelte-k5yrj8 animate  flipped-back"><div class="front svelte-k5yrj8"><img slot="front" src="https://images.pokemontcg.io/sm2/5_hires.png" class="svelte-r1zcyq"></div>
-        <div class="back svelte-k5yrj8"><img slot="back" src="/_app/immutable/assets/pokemon_card_back-2800398f.png" class="svelte-r1zcyq"></div></div></div></div>
+        <label for="attack-name" class="field svelte-1c3nn9x">Attack name:</label>
+        <input id="attack-name" placeholder="Pika punch" class="svelte-1c3nn9x">
 
-        <div class="row buttons svelte-r1zcyq"><button class="button-red-small">Show answer</button></div></div>
-    </div>
+        <label for="set" class="field svelte-1c3nn9x">Set:</label>
+        <input id="set" placeholder="Stormfront" class="svelte-1c3nn9x">
+
+        <label for="flavor-text" class="field svelte-1c3nn9x">Flavor text:</label>
+        <textarea id="flavor-text" placeholder="It lives in forests with others" class="svelte-1c3nn9x"></textarea></div>
+
+    <button class="button-red-small submit svelte-1c3nn9x">Search</button></form>
+
+
+</div>
 
 <footer class="svelte-1ozqygl">Pokémon and All Respective Names are Trademark &amp; © of Nintendo 1996-2022.
 
@@ -70,10 +79,10 @@
 </footer>
 
 
-		<script type="module" data-sveltekit-hydrate="1tya1x0">
+		<script type="module" data-sveltekit-hydrate="1gts0sy">
 		import { start } from "/_app/immutable/start-144617d1.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="1tya1x0"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1gts0sy"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -82,9 +91,9 @@
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 8],
+				nodes: [0, 6],
 				params: {},
-				routeId: "testResult"
+				routeId: "search"
 			}
 		});
 	</script>

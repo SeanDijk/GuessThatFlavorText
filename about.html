@@ -29,8 +29,7 @@
     <title>Guess That Flavor Text</title>
     <meta http-equiv="content-security-policy" content="">
 	<link rel="stylesheet" href="/_app/immutable/assets/__layout-a6165297.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Modal-68644852.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Flippable-b72d7983.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/about-8a7bf195.css">
 	<link rel="modulepreload" href="/_app/immutable/start-144617d1.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-2cb11f61.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/paths-b9644fda.js">
@@ -39,9 +38,7 @@
 	<link rel="modulepreload" href="/_app/immutable/chunks/close-icon-2ac8c1d9.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/navigation-fbe70647.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-854bf481.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/testResult.svelte-7456806a.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Modal.svelte_svelte_type_style_lang-a6861bc3.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Flippable-6fc86018.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/about.svelte-ee204948.js">
 </head>
 <body>
 
@@ -53,13 +50,27 @@
 
     </div></div></header>
 
-<div class="content svelte-1ozqygl"><div class="column">Try again or reveal the answer.
+<div class="content svelte-1ozqygl"><div class="container svelte-1qrqvat"><p>Big shout out to the <a href="https://anchor.fm/uncommonenergy" target="_blank">Uncommon Energy
+        Podcast</a> and their segment called &#39;Guess That Flavor Text&#39; that this tool is based upon.
+    </p>
 
-        <div class="cardImg svelte-r1zcyq"><div class="container svelte-k5yrj8"><div class="container-inner svelte-k5yrj8 animate  flipped-back"><div class="front svelte-k5yrj8"><img slot="front" src="https://images.pokemontcg.io/sm2/5_hires.png" class="svelte-r1zcyq"></div>
-        <div class="back svelte-k5yrj8"><img slot="back" src="/_app/immutable/assets/pokemon_card_back-2800398f.png" class="svelte-r1zcyq"></div></div></div></div>
+    <p>Special thanks and credits to:
+    </p>
 
-        <div class="row buttons svelte-r1zcyq"><button class="button-red-small">Show answer</button></div></div>
-    </div>
+    <ul><li><a href="https://pokemontcg.io/" target="_blank">pokemontcg.io</a>, for supplying and maintaining an awesome api, providing
+            all the card data.
+        </li>
+        <li>KaelinT, the author of the <a href="https://www.cufonfonts.com/font/pokemon-fire-red" target="_blank">Pokémon Fire Red
+            Font</a>.
+        </li>
+        <li><a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> for creating the framework, that is used to build this tool
+        </li></ul>
+
+    <div class="socials svelte-1qrqvat"><a href="https://github.com/SeanDijk/GuessThatFlavorText" target="_blank"><figure class="svelte-1qrqvat"><img src="/_app/immutable/assets/GitHub-Mark-120px-plus-78981108.png" alt="github" class="social-image svelte-1qrqvat">
+                <figcaption>Github</figcaption></figure></a>
+
+        <a href="https://twitter.com/Sean_van_Dijk" target="_blank"><figure class="svelte-1qrqvat"><img src="/_app/immutable/assets/twitter-f6981003.svg" alt="twitter" class="social-image svelte-1qrqvat">
+                <figcaption>Twitter</figcaption></figure></a></div></div></div>
 
 <footer class="svelte-1ozqygl">Pokémon and All Respective Names are Trademark &amp; © of Nintendo 1996-2022.
 
@@ -70,10 +81,10 @@
 </footer>
 
 
-		<script type="module" data-sveltekit-hydrate="1tya1x0">
+		<script type="module" data-sveltekit-hydrate="wcohxr">
 		import { start } from "/_app/immutable/start-144617d1.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="1tya1x0"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="wcohxr"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -82,9 +93,9 @@
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 8],
+				nodes: [0, 2],
 				params: {},
-				routeId: "testResult"
+				routeId: "about"
 			}
 		});
 	</script>
