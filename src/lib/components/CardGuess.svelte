@@ -35,6 +35,22 @@
     function resetAnswer() {
         givenAnswer = ""
     }
+
+    function getRandomAttack() {
+        if (card.attacks) {
+            return card.attacks[Math.floor(Math.random() * card.attacks.length)].name
+        }
+        return "This card has no attacks"
+    }
+
+    function getStage() {
+        let stage = card.subtypes.find(element => element === "Basic" || element.startsWith("Stage"))
+        if (typeof stage === 'undefined' || card.subtypes.includes("Baby")) {
+            return "Basic"
+        }
+        return stage
+    }
+
 </script>
 
 <style>
@@ -117,13 +133,13 @@
                         <Lifeline buttonText="Show stage">
                             <fieldset class="answer">
                                 <legend>Stage</legend>
-                                {card.subtypes.find(element => element === "Basic" || element.startsWith("Stage"))}
+                                { getStage() }
                             </fieldset>
                         </Lifeline>
                         <Lifeline buttonText="Show attack">
                             <fieldset class="answer">
                                 <legend>Attack name</legend>
-                                {card.attacks[Math.floor(Math.random() * card.attacks.length)].name}
+                                { getRandomAttack() }
                             </fieldset>
                         </Lifeline>
                     </div>

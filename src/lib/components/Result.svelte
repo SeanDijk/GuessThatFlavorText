@@ -27,13 +27,12 @@
             url: `${window.location.origin}/guess?cardId=${btoa(card.id)}`
         }
 
-        if(navigator.share) {
+        if (navigator.share) {
             navigator.share(shareData)
-        }
-        else {
-            navigator.clipboard.writeText(shareData.url).then(function() {
+        } else {
+            navigator.clipboard.writeText(shareData.url).then(function () {
                 message.show()
-            }, function(err) {
+            }, function (err) {
                 console.error('Async: Could not copy text: ', err);
             });
         }
@@ -74,12 +73,14 @@
             Try again or reveal the answer.
         {/if}
 
-        <div class="cardImg" on:click={() => showAnswer = true}>
-            <Flippable showFront={show} animate={!guessedCorrectly} flipOnClick="{!guessedCorrectly}">
-                <img slot="front" src="{card.images.large}"/>
-                <img slot="back" src="{cardBack}"/>
-            </Flippable>
-        </div>
+        {#key guessedCorrectly}
+            <div class="cardImg" on:click={() => showAnswer = true}>
+                <Flippable showFront={show} animate={!guessedCorrectly} flipOnClick="{!guessedCorrectly}">
+                    <img slot="front" src="{card.images.large}"/>
+                    <img slot="back" src="{cardBack}"/>
+                </Flippable>
+            </div>
+        {/key}
 
         {#if show === true}
             <div class="row buttons">
