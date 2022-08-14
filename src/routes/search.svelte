@@ -42,6 +42,13 @@
 
     function submit() {
 
+        // Sanitize
+        qName = optionalTrim(qName)
+        qAttackName = optionalTrim(qAttackName)
+        qSet = optionalTrim(qSet)
+        qFlavorText = optionalTrim(qFlavorText)
+
+        // Add to query params
         let queryParamsToAddToUrl = {}
         if (haveSearched) queryParamsToAddToUrl.page = pageNumber
         if (pageSize !== 20) queryParamsToAddToUrl.pageSize = pageSize
@@ -88,13 +95,27 @@
         goToPage(pageNumber - 1)
     }
 
+    function optionalDecodeURI(arg) {
+        if (!(typeof arg === 'undefined') && arg != null) {
+            return decodeURI(arg).trim()
+        }
+        return arg
+    }
+
+    function optionalTrim(str) {
+        if (!(typeof str === 'undefined') && str != null) {
+            return str.trim()
+        }
+        return str
+    }
+
     onMount(() => {
         pageNumber = parseInt($page.url.searchParams.get('page') ?? '1')
         pageSize = parseInt($page.url.searchParams.get('pageSize') ?? '20')
-        qName = $page.url.searchParams.get('name')
-        qAttackName = $page.url.searchParams.get('attackName')
-        qSet = $page.url.searchParams.get('set')
-        qFlavorText = $page.url.searchParams.get('flavorText')
+        qName = optionalDecodeURI($page.url.searchParams.get('name'))
+        qAttackName = optionalDecodeURI($page.url.searchParams.get('attackName'))
+        qSet = optionalDecodeURI($page.url.searchParams.get('set'))
+        qFlavorText = optionalDecodeURI($page.url.searchParams.get('flavorText'))
 
         if (qName || qAttackName || qSet || qFlavorText || pageNumber !== 1) {
             submit()
