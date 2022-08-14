@@ -8,12 +8,18 @@
 
     export let card = null
 
+    $: {
+        // Reference card so that this runs whenever card is changed
+        card
+        // Don't reference givenAnswer directly, so that changes do not trigger this
+        resetAnswer()
+    }
+
     let givenAnswer = "";
     let guessedCorrectly = false;
     let resultDialog
 
     export function getDialog() {
-        console.info(`getDialog returns ${resultDialog}`)
         return resultDialog
     }
 
@@ -24,6 +30,10 @@
     function processAnswer() {
         guessedCorrectly = checkAnswer()
         resultDialog.showModal()
+    }
+
+    function resetAnswer() {
+        givenAnswer = ""
     }
 </script>
 
