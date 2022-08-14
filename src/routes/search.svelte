@@ -1,7 +1,3 @@
-<script context="module">
-    // Wellicht kan als het een en anders naar onMount gaat, deze wel geprerenderd worden
-    export const prerender = false;
-</script>
 <script>
     import PokemonApiService from '$lib/js/PokemonApiService.js'
     import {page} from "$app/stores";
@@ -11,6 +7,7 @@
     import LoadingIcon from "$lib/components/LoadingIcon.svelte";
     import {replaceStateWithQuery} from "$lib/js/QueryParams.js";
     import {fade} from 'svelte/transition';
+    import {onMount} from "svelte";
 
     const {groupBy} = pkg;
 
@@ -20,12 +17,12 @@
     let haveSearched = false
     let searching = false
 
-    let pageNumber = parseInt($page.url.searchParams.get('page') ?? '1')
-    let pageSize = parseInt($page.url.searchParams.get('pageSize') ?? '20')
-    let qName = $page.url.searchParams.get('name')
-    let qAttackName = $page.url.searchParams.get('attackName')
-    let qSet = $page.url.searchParams.get('set')
-    let qFlavorText = $page.url.searchParams.get('flavorText')
+    let pageNumber
+    let pageSize
+    let qName
+    let qAttackName
+    let qSet
+    let qFlavorText
 
     $: if (pageContents) {
         groupedBySet = groupBy(pageContents.data, (card) => {
@@ -72,6 +69,12 @@
         })
     }
 
+    function submitNewSearch() {
+        pageNumber = 1
+        submit()
+    }
+
+
     function goToPage(number) {
         pageNumber = number
         submit()
@@ -85,9 +88,18 @@
         goToPage(pageNumber - 1)
     }
 
-    if (qName || qAttackName || qSet || qFlavorText || pageNumber !== 1) {
-        submit()
-    }
+    onMount(() => {
+        pageNumber = parseInt($page.url.searchParams.get('page') ?? '1')
+        pageSize = parseInt($page.url.searchParams.get('pageSize') ?? '20')
+        qName = $page.url.searchParams.get('name')
+        qAttackName = $page.url.searchParams.get('attackName')
+        qSet = $page.url.searchParams.get('set')
+        qFlavorText = $page.url.searchParams.get('flavorText')
+
+        if (qName || qAttackName || qSet || qFlavorText || pageNumber !== 1) {
+            submit()
+        }
+    })
 
 </script>
 
@@ -153,7 +165,7 @@
     }
 </style>
 
-<form on:submit|preventDefault={submit}>
+<form on:submit|preventDefault={submitNewSearch}>
     <div class="form-grid">
         <label for="name" class="field">Name: </label>
         <input id="name" bind:value={qName} placeholder="Pikachu"/>
@@ -182,7 +194,6 @@
             <span>Page {pageNumber} of {amountOfPages}</span>
             <button on:click={nextPage} disabled='{pageNumber >= amountOfPages}'>Next</button>
         </div>
-
 
         <table>
             <thead>
