@@ -34,7 +34,7 @@
 <div class="container">
     <p
     >Big shout out to the <a href="https://anchor.fm/uncommonenergy" target="_blank">Uncommon Energy
-        Podcast</a> and their segment called 'Guess That Flavor Text' where this tool is based upon.
+        Podcast</a> and their segment called 'Guess That Flavor Text' that this tool is based upon.
     </p>
 
     <p>

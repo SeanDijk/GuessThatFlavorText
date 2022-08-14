@@ -139,6 +139,11 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
+    }
+
+    .page-number-selector > button {
+        font-size: 1em;
     }
 
     @media only screen and (min-width: 768px) {
@@ -171,7 +176,7 @@
     <LoadingIcon position="relative"></LoadingIcon>
 {/if}
 {#if haveSearched && pageContents && pageContents.totalCount > 0}
-    <div transition:fade on:load={() => console.log('test')}>
+    <div transition:fade>
         <div class="page-number-selector">
             <button on:click={previousPage} disabled='{pageNumber <= 1}'>Previous</button>
             <span>Page {pageNumber} of {amountOfPages}</span>
@@ -197,7 +202,6 @@
                         <td>{card.name}</td>
                         <td>{card.flavorText}</td>
                         <td>{card?.attacks?.map(value => value.name).reduce((previousValue, currentValue) => previousValue + ", " + currentValue) || ''}</td>
-                        <!--{card.id} | {card.name} | {card.flavorText} | {card.set.series} - {card.set.name} | -->
                     </tr>
                 {/each}
 

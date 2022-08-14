@@ -14,18 +14,15 @@
     }
 
     export function close() {
-        console.log(dialog)
         if (!dialog.open) {
             return Promise.resolve()
         }
 
         return new Promise(function (resolve) {
-            console.log("Add the event listener")
             dialog.addEventListener('webkitAnimationEnd', (arg) => {
                 if (arg.animationName.includes('hide') && arg.pseudoElement === '') {
                     closing = false
                     dialog.close();
-                    console.log("Remove the event listener")
                     dialog.removeEventListener('webkitAnimationEnd', arg.callee, false);
                     document.querySelector('body').style.overflowY = ''
                     resolve()

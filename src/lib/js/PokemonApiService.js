@@ -84,7 +84,6 @@ const PokemonApiService = {
 
     getSets: async () => {
         let sets = pokemon.set.all()
-        console.log(sets)
         return sets
     }
 }

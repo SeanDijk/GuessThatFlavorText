@@ -50,6 +50,7 @@
     .set-logo {
         flex: 0 0 auto;
         max-width: 100%;
+        max-height: 100px;
         height: 100%;
         align-self: center;
     }
