@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <script async defer data-website-id="1adf6fa2-5c5b-4f36-bf69-8b367ffb810e" src="https://unami-guess-that-flavor-text.herokuapp.com/umami.js"></script>
-    <link rel="stylesheet" href="../fonts/pokemon_fire_red.ttf">
+    <link rel="stylesheet" href="./fonts/pokemon_fire_red.ttf">
     <style>
         body {
             padding: 0;
@@ -24,13 +24,13 @@
 
     </style>
     <meta charset="utf-8"/>
-    <link rel="icon" href="../favicon.png"/>
+    <link rel="icon" href="./favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Guess That Flavor Text</title>
     <meta http-equiv="content-security-policy" content="">
 	<link rel="stylesheet" href="/_app/immutable/assets/__layout-a6165297.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/CardGuess-ffb7c60e.css">
 	<link rel="stylesheet" href="/_app/immutable/assets/PokemonApiService-a6563f92.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/CardGuess-ffb7c60e.css">
 	<link rel="modulepreload" href="/_app/immutable/start-5ac45ee4.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-eee36c3a.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/paths-b9644fda.js">
@@ -38,9 +38,10 @@
 	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-44388dc7.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/close-icon-2ac8c1d9.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-40bb28e8.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/guess/random.svelte-da55577d.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/CardGuess-ec1a5dcf.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/guess.svelte-4d29498f.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/PokemonApiService-66f11582.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/stores-cef0bb2f.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/CardGuess-ec1a5dcf.js">
 </head>
 <body>
 
@@ -52,13 +53,13 @@
 
     </div></div></header>
 
-<div class="content svelte-1ozqygl"><div><div class="column container svelte-vdcqbh"><div class="loading svelte-zpia7a"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHoAAAB7CAYAAAC7BZRBAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9bpSKVDhYR6ZChOlkQleKoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APE0clJ0UVK/F9SaBHjwXE/3t173L0D/M0qU82eCUDVLCOTSgq5/KoQfEUQQwgjgajETH1OFNPwHF/38PH1Ls6zvM/9OQaUgskAn0A8y3TDIt4gTmxaOud94ggrSwrxOfG4QRckfuS67PIb55LDfp4ZMbKZeeIIsVDqYrmLWdlQiaeJY4qqUb4/57LCeYuzWq2z9j35C0MFbWWZ6zSjSGERSxAhQEYdFVRhIU6rRoqJDO0nPfwjjl8kl0yuChg5FlCDCsnxg//B727N4tSkmxRKAr0vtv0xCgR3gVbDtr+Pbbt1AgSegSut4681gZlP0hsdLXYEhLeBi+uOJu8BlzvA8JMuGZIjBWj6i0Xg/Yy+KQ8M3gL9a25v7X2cPgBZ6ip9AxwcAmMlyl73eHdfd2//nmn39wOqF3K9NsIe1gAAAAlwSFlzAAB1MAAAdTAB3TNyzQAAAAd0SU1FB+YHFwwSOsTFsQwAAAH9SURBVHja7d2hbsJQFIBhWEaCxpAlmCXTMzzF1F5hZqLJDJndKywYEsSeYmpPgUEvmcFgqpsgmCVVh+Y0Ldv36Rso/XcrTrp2MADgwgwv6FiPzmVzV/7W/wehhUZohEZohEZohCauzWlO6iTrfTrt9Yl83e973caOdulGaIRGaIRGaIRGaGqaTF9CE6/oJOtuNgutu39+CK3bfnylnqDv3S71834Oh9C6VVmmNrSjXboRGqERGqERGqERmprrtj44e+J18/SWenzRCVr0d0QnaLejkR2N0AiN0AgtNEIjNELTB6eTsdR7waKy7/HK/ryuvEwmoXWrsjza0QgtNEIjNEIjNEIjNA2cfc9Y9B6qbNGJ1+Nmk/q9fX++mR2N0EIjNEIjNEIjNELT0OkzqlKfmP85n6ceaHTiVVVVaN16vQ6tWywWoXXRCVoLzxmzoxFaaIRGaIRGaIRGaJo4+56x6ORpPB538oOiE69s2e+mXC6XoXXRyZ0d7dKN0AiN0AiN0AiN0NS09m7K6AQtW/ZELjqhyhadeA28mxKhhUZohEZohEZohKaZ1t5NGb13qyiK1O/N/m9KOxqhERqhERqhERqhheaPGrb42anPLevq3q2oM+7x6qSNHe3SjdAIjdAIjdAIjdDUDC/oWI/OpR2N0AgtNEIjNEIjNEKT5hcXvFdLikG1QwAAAABJRU5ErkJggg==" class="loading svelte-zpia7a"></div>
+<div class="content svelte-1ozqygl"><div class="column container svelte-vdcqbh"><div class="loading svelte-zpia7a"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHoAAAB7CAYAAAC7BZRBAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9bpSKVDhYR6ZChOlkQleKoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APE0clJ0UVK/F9SaBHjwXE/3t173L0D/M0qU82eCUDVLCOTSgq5/KoQfEUQQwgjgajETH1OFNPwHF/38PH1Ls6zvM/9OQaUgskAn0A8y3TDIt4gTmxaOud94ggrSwrxOfG4QRckfuS67PIb55LDfp4ZMbKZeeIIsVDqYrmLWdlQiaeJY4qqUb4/57LCeYuzWq2z9j35C0MFbWWZ6zSjSGERSxAhQEYdFVRhIU6rRoqJDO0nPfwjjl8kl0yuChg5FlCDCsnxg//B727N4tSkmxRKAr0vtv0xCgR3gVbDtr+Pbbt1AgSegSut4681gZlP0hsdLXYEhLeBi+uOJu8BlzvA8JMuGZIjBWj6i0Xg/Yy+KQ8M3gL9a25v7X2cPgBZ6ip9AxwcAmMlyl73eHdfd2//nmn39wOqF3K9NsIe1gAAAAlwSFlzAAB1MAAAdTAB3TNyzQAAAAd0SU1FB+YHFwwSOsTFsQwAAAH9SURBVHja7d2hbsJQFIBhWEaCxpAlmCXTMzzF1F5hZqLJDJndKywYEsSeYmpPgUEvmcFgqpsgmCVVh+Y0Ldv36Rso/XcrTrp2MADgwgwv6FiPzmVzV/7W/wehhUZohEZohEZohCauzWlO6iTrfTrt9Yl83e973caOdulGaIRGaIRGaIRGaGqaTF9CE6/oJOtuNgutu39+CK3bfnylnqDv3S71834Oh9C6VVmmNrSjXboRGqERGqERGqERmprrtj44e+J18/SWenzRCVr0d0QnaLejkR2N0AiN0AgtNEIjNELTB6eTsdR7waKy7/HK/ryuvEwmoXWrsjza0QgtNEIjNEIjNEIjNA2cfc9Y9B6qbNGJ1+Nmk/q9fX++mR2N0EIjNEIjNEIjNELT0OkzqlKfmP85n6ceaHTiVVVVaN16vQ6tWywWoXXRCVoLzxmzoxFaaIRGaIRGaIRGaJo4+56x6ORpPB538oOiE69s2e+mXC6XoXXRyZ0d7dKN0AiN0AiN0AiN0NS09m7K6AQtW/ZELjqhyhadeA28mxKhhUZohEZohEZohKaZ1t5NGb13qyiK1O/N/m9KOxqhERqhERqhERqhheaPGrb42anPLevq3q2oM+7x6qSNHe3SjdAIjdAIjdAIjdDUDC/oWI/OpR2N0AgtNEIjNEIjNEKT5hcXvFdLikG1QwAAAABJRU5ErkJggg==" class="loading svelte-zpia7a"></div>
 
     
 <div class="container svelte-36y3ea"><div class="contained svelte-36y3ea"><div class="column"></div></div></div>
     <dialog class="dialog svelte-140dze1  fullscreenMobile"><button class="icon-button close svelte-140dze1"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUVaROwgIpKhOlkQFdFNq1CECqFWaNXB5NIPoUlD0uLiKLgWHPxYrDq4OOvq4CoIgh8gjk5Oii5S4v+SQosYD4778e7e4+4dINRLTLM6RgFNr5ipRFzMZFfEwCuCCKMH0xiUmWXMSlISnuPrHj6+3sV4lve5P0dYzVkM8InEM8wwK8TrxJObFYPzPnGEFWWV+Jx4xKQLEj9yXXH5jXPBYYFnRsx0ao44QiwW2lhpY1Y0NeIJ4qiq6ZQvZFxWOW9x1kpV1rwnf2Eopy8vcZ3mABJYwCIkiFBQxQZKqCBGq06KhRTtxz38/Y5fIpdCrg0wcsyjDA2y4wf/g9/dWvnxMTcpFAc6X2z7YwgI7AKNmm1/H9t24wTwPwNXestfrgNTn6TXWlr0COjeBi6uW5qyB1zuAH1PhmzKjuSnKeTzwPsZfVMW6L0Fulbd3pr7OH0A0tRV8gY4OASGC5S95vHuYHtv/55p9vcDp3pyvA5XMSIAAAAGYktHRAAkAA0A/+jYTmUAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfmCA0SBzMh4EHsAAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAiFJREFUeNrtmr9qG0EQh7+x71yE48qgIqTzHfglAvaTpDIkTR4lTQKu8ibGaf0ABuEuuBCuDxWSrU2zZ1SEeGcSyQn3G9juVrO/b//NaBYgOdtV0zQGkFL6JxpAHtOVV88BEzcBEAABEAABEAABEIBJmzcUvo44advWuq57Nqztuo62bS2o5dqrZ4yfS+0VcAN8A9ZAXdCnAn4At2P+8Dsze9J+DLwFHgp8jGN5D5wAy1JBNiY2JTYMQwLeAZd5+6QSH8BX4KMTwBfgg8PHBjgFvns0VVmUx9ZbZ0epo6PAcj5y+jjIY8OjqXpuRn4xO3WeFXNCIwDae5bVJatMt4AACIAACIAACMBTmLpX24r0/tsVUDmDIIDDgB9vH4tMqAUiwWPgUw5V14VC7oE7B/AN8AZ4DTwWfF8DK+AzcOvR5KrA/EGaeh5Iu8+jabdHk2sLzGaztMetFjqgvWN07Zn5fP4iB55rSesaFAABEAABEAAB2AmAvu8xs+L2NxOo0tb3/e4ALBaLqKrNnvq4x6hkyPscDTgLJDYXgcm8CPg582qKHIIPlJWrtu0x4MfbJ1FWR3zZf4QctUFdgwIgAAIgAAIgALu1KnDvrvEXRurA2Lx9bAzNPZqqwCOpOsfqnkdSqwCA1VaEV+JjM0LzaJr8MzmY+EPJSC6wbJrGhmFIzoJF0ce5+OL6YTMjj2npFaNrUAAEQAAEQAAEQAAEYKr2E+wKGw7DcK7oAAAAAElFTkSuQmCC" alt="Close modal"></button>
     <h1 class="title"><span slot="title">Wrong guess!</span></h1>
-    <div class="body"></div></dialog></div></div></div>
+    <div class="body"></div></dialog></div></div>
 
 <footer class="svelte-1ozqygl">Pokémon and All Respective Names are Trademark &amp; © of Nintendo 1996-2022.
 
@@ -69,10 +70,10 @@
 </footer>
 
 
-		<script type="module" data-sveltekit-hydrate="16nzgcm">
+		<script type="module" data-sveltekit-hydrate="1kly8cp">
 		import { start } from "/_app/immutable/start-5ac45ee4.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="16nzgcm"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1kly8cp"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -81,9 +82,9 @@
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 3],
+				nodes: [0, 4],
 				params: {},
-				routeId: "guess/random"
+				routeId: "guess"
 			}
 		});
 	</script>
