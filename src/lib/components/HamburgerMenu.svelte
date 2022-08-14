@@ -50,7 +50,6 @@
             {:else}
                 <img src="{hamburgerIcon}" alt="Open menu"/>
             {/if}
-
         </button>
     {/if}
 

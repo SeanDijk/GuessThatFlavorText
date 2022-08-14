@@ -109,6 +109,10 @@
         grid-column: 2 / 3;
     }
 
+    table {
+        width: 100%;
+    }
+
     th {
         text-align: left;
     }

@@ -1,4 +1,6 @@
 <script>
+    import closeIcon from '$lib/images/close-icon.png'
+
     export let fullScreen = false
     export let mobileFullScreen = false
 
@@ -76,25 +78,15 @@
     }
 
     .close {
-        all: unset;
-        cursor: pointer;
         position: absolute;
-        top: 1em;
-        right: 1em;
-        font-family: "Pokemon Fire Red", serif;
-        display: flex;
-        justify-content: center; /* align horizontal */
-        align-items: center; /* align vertical */
-
-        width: 2em;
-        height: 2em;
-        outline: orange 5px auto;
-
+        top: 3em;
+        right: 3em;
+        box-sizing: border-box;
+        padding: 16px;
+        width: 48px;
+        height: 48px;
     }
 
-    .close:focus {
-        outline: orange 5px auto;
-    }
 
     @media only screen and (max-width: 768px) {
         .fullscreenMobile {
@@ -103,6 +95,13 @@
             width: 100%;
             height: 100%;
             border-radius: 0;
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        .close {
+            padding: 16px;
+            width: 56px;
+            height: 56px;
         }
     }
 </style>
@@ -114,7 +113,9 @@
         bind:this={dialog}
         on:click={closeOutside}
 >
-    <button class="close" on:click={close}>x</button>
+    <button on:click={close} class="icon-button close">
+        <img src="{closeIcon}" alt="Close modal"/>
+    </button>
     <h1 class="title">
         <slot name="title"></slot>
     </h1>
