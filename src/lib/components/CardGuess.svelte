@@ -51,6 +51,10 @@
         return stage
     }
 
+    function replaceFlavorTextNameWithBlank() {
+        return GuessService.replaceNameWithBlank(card.flavorText+"", card.name)
+    }
+
 </script>
 
 <style>
@@ -115,7 +119,7 @@
     <StaticFade key={card}>
         <div class="column">
             {#if card}
-                <q class="flavor-text">{(card.flavorText + "").replace(card.name, 'BLANK')}</q>
+                <q class="flavor-text">{replaceFlavorTextNameWithBlank()}</q>
                 {#key card}
                     <form class="row guess-form" on:submit|preventDefault={processAnswer}>
                         <input bind:value={givenAnswer} type="text" placeholder="Your guess..."/>

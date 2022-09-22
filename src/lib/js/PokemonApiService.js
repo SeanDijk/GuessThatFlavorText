@@ -83,8 +83,7 @@ const PokemonApiService = {
     },
 
     getSets: async () => {
-        let sets = pokemon.set.all()
-        return sets
+        return pokemon.set.all()
     }
 }
 

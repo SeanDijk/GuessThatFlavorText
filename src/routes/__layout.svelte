@@ -100,7 +100,8 @@
             <div class="menu" transition:fade>
                 <a href="{base}/about" class="nav-link">About</a>
                 <a href="{base}/search" class="nav-link">Search a card</a>
-                <a href="{base}/guess/random" class="nav-link">Guess random card</a>
+                <a href="{base}/guess/random" class="nav-link">Guess a random card</a>
+                <a href="{base}/changelog" class="nav-link">Changelog</a>
             </div>
         </HamburgerMenu>
     </div>
