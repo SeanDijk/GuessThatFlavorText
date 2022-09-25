@@ -32,7 +32,7 @@
     <title>Guess That Flavor Text</title>
     <meta http-equiv="content-security-policy" content="">
 	<link rel="stylesheet" href="/_app/immutable/assets/__layout-0d269011.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/about-8a7bf195.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/changelog-78dd6ea6.css">
 	<link rel="modulepreload" href="/_app/immutable/start-4dd70c7c.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-eee36c3a.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/paths-b9644fda.js">
@@ -40,7 +40,7 @@
 	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-493da172.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/close-icon-2ac8c1d9.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-40bb28e8.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/about.svelte-9b6e65be.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/changelog.svelte-c8bb445c.js">
 </head>
 <body>
 
@@ -52,27 +52,19 @@
 
     </div></div></header>
 
-<div class="content svelte-1ozqygl"><div class="container svelte-1qrqvat"><p>Big shout out to the <a href="https://anchor.fm/uncommonenergy" target="_blank">Uncommon Energy
-        Podcast</a> and their segment called &#39;Guess That Flavor Text&#39; that this tool is based upon.
-    </p>
+<div class="content svelte-1ozqygl"><div class="container svelte-w3evn8"><h1>Changelog</h1>
+    <details open><summary><h2 class="svelte-w3evn8">1.1.0</h2></summary>
+        <ul><li>Better name detection to replace the Pokémon name with &quot;BLANK&quot;. For instance if the card is called
+                &quot;Galarian Moltres&quot; and there is &quot;Moltres&quot; in the flavor text, it gets replaced.
+            </li>
+            <li>Answers do not need to include the gender signs (♀ and ♂). So for example &quot;Nidoran&quot; would suffice for
+                either &quot;Nidoran ♀&quot; or &quot;Nidoran ♂&quot;
+            </li>
+            <li>Added changelog page</li></ul></details>
 
-    <p>Special thanks and credits to:
-    </p>
-
-    <ul><li><a href="https://pokemontcg.io/" target="_blank">pokemontcg.io</a>, for supplying and maintaining an awesome api, providing
-            all the card data.
-        </li>
-        <li>KaelinT, the author of the <a href="https://www.cufonfonts.com/font/pokemon-fire-red" target="_blank">Pokémon Fire Red
-            Font</a>.
-        </li>
-        <li><a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> for creating the framework, that is used to build this tool
-        </li></ul>
-
-    <div class="socials svelte-1qrqvat"><a href="https://github.com/SeanDijk/GuessThatFlavorText" target="_blank"><figure class="svelte-1qrqvat"><img src="/_app/immutable/assets/GitHub-Mark-120px-plus-78981108.png" alt="github" class="social-image svelte-1qrqvat">
-                <figcaption>Github</figcaption></figure></a>
-
-        <a href="https://twitter.com/Sean_van_Dijk" target="_blank"><figure class="svelte-1qrqvat"><img src="/_app/immutable/assets/twitter-f6981003.svg" alt="twitter" class="social-image svelte-1qrqvat">
-                <figcaption>Twitter</figcaption></figure></a></div></div></div>
+    <details><summary><h2 class="svelte-w3evn8">1.0.0</h2></summary>
+        Initial release
+    </details></div></div>
 
 <footer class="svelte-1ozqygl">Pokémon and All Respective Names are Trademark &amp; © of Nintendo 1996-2022.
 
@@ -83,10 +75,10 @@
 </footer>
 
 
-		<script type="module" data-sveltekit-hydrate="wcohxr">
+		<script type="module" data-sveltekit-hydrate="1g9w33r">
 		import { start } from "/_app/immutable/start-4dd70c7c.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="wcohxr"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1g9w33r"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -95,9 +87,9 @@
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 2],
+				nodes: [0, 3],
 				params: {},
-				routeId: "about"
+				routeId: "changelog"
 			}
 		});
 	</script>
