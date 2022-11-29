@@ -76,6 +76,7 @@
         {#key guessedCorrectly}
             <div class="cardImg" on:click={() => showAnswer = true}>
                 <Flippable showFront={show} animate={!guessedCorrectly} flipOnClick="{!guessedCorrectly}">
+                    <!-- TODO load the smaller image on smaller devices or bad connections-->
                     <img slot="front" src="{card.images.large}"/>
                     <img slot="back" src="{cardBack}"/>
                 </Flippable>

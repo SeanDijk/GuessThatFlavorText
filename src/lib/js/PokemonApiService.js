@@ -19,6 +19,7 @@ const PokemonApiService = {
         }
     },
 
+    // TODO: Random with search params (e.g. only a list of sets.)
     getRandomCard: async () => {
         let value = await PokemonApiService.getAmountOfCards()
         let pageNumber = Math.floor(Math.random() * value) + 1;
