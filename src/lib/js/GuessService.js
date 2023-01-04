@@ -32,10 +32,10 @@ const GuessService = {
      * @param {string} name
      */
     replaceNameWithBlank: (flavorText, name) => {
-        let blanked = flavorText.replaceAll(name, BLANK)
+        let blanked = flavorText.replaceAll(new RegExp(name,"ig"), BLANK)
 
         filterTypes.forEach(value => {
-            blanked = blanked.replaceAll(name.replaceAll(value, '').trim(), BLANK)
+            blanked = blanked.replaceAll(new RegExp(name.replaceAll(value, '').trim(),"ig"), BLANK)
         })
 
         return blanked
