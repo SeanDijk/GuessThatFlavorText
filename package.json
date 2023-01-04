@@ -37,6 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@macfja/svelte-persistent-store": "^2.2.1",
 		"lodash": "^4.17.21",
 		"pokemontcgsdk": "^2.0.0"
 	}

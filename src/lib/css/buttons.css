@@ -1,3 +1,7 @@
+button {
+    font-size: .8em;
+}
+
 .button-red, .button-red-small {
     image-rendering: pixelated;
     box-sizing: border-box;
@@ -29,7 +33,6 @@
 
     border-width: 1em;
     font-size: 1em;
-
 }
 
 .button-red:hover, .button-red-small:hover {
