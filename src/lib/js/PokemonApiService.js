@@ -86,8 +86,10 @@ const PokemonApiService = {
 
   },
 
-  getSets: async () => {
-    return pokemon.set.all();
+  getAllSetsWithFlavorTexts: async () => {
+    return pokemon.set.all({
+      q: "(-id:gym1 AND -id:gym2 AND -id:ru1 AND -id:ecard1 AND -id:ecard2 AND -id:ecard3 AND -id:ex1 AND -id:ex2 AND -id:ex3 AND -id:ex4 AND -id:ex5 AND -id:ex6 AND -id:ex7 AND -id:ex8 AND -id:ex9 AND -id:ex10 AND -id:ex11 AND -id:ex12 AND -id:ex13 AND -id:ex14 AND -id:ex15 AND -id:ex16 AND -id:tk1a AND -id:tk1b AND -id:tk2a AND -id:tk2b AND -id:pop1 AND -id:pop2 AND -id:pop3 AND -id:pop4 AND -id:pop5 AND -id:np)"
+    });
   }
 };
 

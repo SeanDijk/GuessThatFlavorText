@@ -37,7 +37,7 @@
 
   onMount(() => {
     console.log("test3");
-    pokemonApiService.getSets().then(value => {
+    pokemonApiService.getAllSetsWithFlavorTexts().then(value => {
       setsBySeries = groupBy(value, (set => set.series));
       for (const [series, sets] of Object.entries(setsBySeries)) {
         setInitialState(series, sets);
@@ -89,7 +89,8 @@
   Changes the parameters which are used to get a random card.
   <details>
     <summary>Sets</summary>
-    If nothing is selected, all the sets are used.<br />
+    If nothing is selected, all the sets are used. Some sets, like <i>Gym Heroes</i> are missing, since they do not contain
+    a single Pokémon with a flavor text.<br />
     <button on:click={selectAllSets}>Select all</button>
     <button on:click={unselectAllSets}>Unselect all</button>
     <div class="sets">
