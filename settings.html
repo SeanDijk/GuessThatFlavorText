@@ -36,7 +36,7 @@
     <meta name="author" content="Sean van Dijk">
     <meta http-equiv="content-security-policy" content="">
 	<link rel="stylesheet" href="/_app/immutable/assets/__layout-1ca0a2ae.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/about-8a7bf195.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/settings-d4c6740f.css">
 	<link rel="modulepreload" href="/_app/immutable/start-a9a56e96.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-f8c949a3.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-66cf2f4f.js">
@@ -45,7 +45,10 @@
 	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-d246b0b7.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/close-icon-2ac8c1d9.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-30ebe04c.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/about.svelte-e3bcc0cb.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/settings.svelte-f20408a4.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/PokemonApiService-8b675361.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/lodash-2cb91f17.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/stores-90196818.js">
 </head>
 <body>
 
@@ -57,27 +60,23 @@
 
     </div></div></header>
 
-<div class="content svelte-1ozqygl"><div class="container svelte-1qrqvat"><p>Big shout out to the <a href="https://anchor.fm/uncommonenergy" target="_blank">Uncommon Energy
-        Podcast</a> and their segment called &#39;Guess That Flavor Text&#39; that this tool is based upon.
-    </p>
+<div class="content svelte-1ozqygl"><div class="container svelte-n1266p"><h1>Settings</h1>
 
-    <p>Special thanks and credits to:
-    </p>
 
-    <ul><li><a href="https://pokemontcg.io/" target="_blank">pokemontcg.io</a>, for supplying and maintaining an awesome api, providing
-            all the card data.
-        </li>
-        <li>KaelinT, the author of the <a href="https://www.cufonfonts.com/font/pokemon-fire-red" target="_blank">Pokémon Fire Red
-            Font</a>.
-        </li>
-        <li><a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> for creating the framework, that is used to build this tool
-        </li></ul>
 
-    <div class="socials svelte-1qrqvat"><a href="https://github.com/SeanDijk/GuessThatFlavorText" target="_blank"><figure class="svelte-1qrqvat"><img src="/_app/immutable/assets/GitHub-Mark-120px-plus-78981108.png" alt="github" class="social-image svelte-1qrqvat">
-                <figcaption>Github</figcaption></figure></a>
 
-        <a href="https://twitter.com/Sean_van_Dijk" target="_blank"><figure class="svelte-1qrqvat"><img src="/_app/immutable/assets/twitter-f6981003.svg" alt="twitter" class="social-image svelte-1qrqvat">
-                <figcaption>Twitter</figcaption></figure></a></div></div></div>
+  <h2>Guessing</h2>
+  Changes the various aspects of guessing cards.
+  <h3>Lifelines</h3>
+  This feature is still being added
+  <h3>Random Parameters</h3>
+  Changes the parameters which are used to get a random card.
+  <details><summary class="svelte-n1266p">Sets</summary>
+    If nothing is selected, all the sets are used. Some sets, like <i>Gym Heroes</i> are missing, since they do not contain
+    a single Pokémon with a flavor text.<br>
+    <button>Select all</button>
+    <button>Unselect all</button>
+    <div class="sets svelte-n1266p"></div></details></div></div>
 
 <footer class="svelte-1ozqygl">Pokémon and All Respective Names are Trademark &amp; © of Nintendo 1996-2022.
 
@@ -88,10 +87,10 @@
 </footer>
 
 
-		<script type="module" data-sveltekit-hydrate="wcohxr">
+		<script type="module" data-sveltekit-hydrate="mjbe0o">
 		import { start } from "/_app/immutable/start-a9a56e96.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="wcohxr"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="mjbe0o"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -100,9 +99,9 @@
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 2],
+				nodes: [0, 8],
 				params: {},
-				routeId: "about"
+				routeId: "settings"
 			}
 		});
 	</script>

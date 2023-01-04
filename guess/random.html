@@ -30,20 +30,27 @@
     <link rel="manifest" href="../site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Guess That Flavor Text</title>
+
+    <meta name="description" content="Guess the Pokémon that's on the card for the given flavor text. You can use multiple lifelines to help you guess.">
+    <meta name="keywords" content="Pokemon, Pokémon, GuessThatFlavorText, Guess That Flavor Text, Uncommon Energy">
+    <meta name="author" content="Sean van Dijk">
     <meta http-equiv="content-security-policy" content="">
-	<link rel="stylesheet" href="/_app/immutable/assets/__layout-0d269011.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/__layout-1ca0a2ae.css">
 	<link rel="stylesheet" href="/_app/immutable/assets/CardGuess-ffb7c60e.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/PokemonApiService-a6563f92.css">
-	<link rel="modulepreload" href="/_app/immutable/start-341bdc45.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-eee36c3a.js">
+	<link rel="stylesheet" href="/_app/immutable/assets/LoadingIcon-a6563f92.css">
+	<link rel="modulepreload" href="/_app/immutable/start-a9a56e96.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-f8c949a3.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-66cf2f4f.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/paths-b9644fda.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-eca981c1.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-493da172.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-d246b0b7.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/close-icon-2ac8c1d9.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-40bb28e8.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/guess/random.svelte-187bfe43.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/CardGuess-905d676b.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/PokemonApiService-a7bf15d7.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-30ebe04c.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/guess/random.svelte-059752b6.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/CardGuess-61a64628.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/LoadingIcon-cafd759b.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/PokemonApiService-8b675361.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/stores-90196818.js">
 </head>
 <body>
 
@@ -61,7 +68,8 @@
 <div class="container svelte-36y3ea"><div class="contained svelte-36y3ea"><div class="column"></div></div></div>
     <dialog class="dialog svelte-140dze1  fullscreenMobile"><button class="icon-button close svelte-140dze1"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUVaROwgIpKhOlkQFdFNq1CECqFWaNXB5NIPoUlD0uLiKLgWHPxYrDq4OOvq4CoIgh8gjk5Oii5S4v+SQosYD4778e7e4+4dINRLTLM6RgFNr5ipRFzMZFfEwCuCCKMH0xiUmWXMSlISnuPrHj6+3sV4lve5P0dYzVkM8InEM8wwK8TrxJObFYPzPnGEFWWV+Jx4xKQLEj9yXXH5jXPBYYFnRsx0ao44QiwW2lhpY1Y0NeIJ4qiq6ZQvZFxWOW9x1kpV1rwnf2Eopy8vcZ3mABJYwCIkiFBQxQZKqCBGq06KhRTtxz38/Y5fIpdCrg0wcsyjDA2y4wf/g9/dWvnxMTcpFAc6X2z7YwgI7AKNmm1/H9t24wTwPwNXestfrgNTn6TXWlr0COjeBi6uW5qyB1zuAH1PhmzKjuSnKeTzwPsZfVMW6L0Fulbd3pr7OH0A0tRV8gY4OASGC5S95vHuYHtv/55p9vcDp3pyvA5XMSIAAAAGYktHRAAkAA0A/+jYTmUAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfmCA0SBzMh4EHsAAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAiFJREFUeNrtmr9qG0EQh7+x71yE48qgIqTzHfglAvaTpDIkTR4lTQKu8ibGaf0ABuEuuBCuDxWSrU2zZ1SEeGcSyQn3G9juVrO/b//NaBYgOdtV0zQGkFL6JxpAHtOVV88BEzcBEAABEAABEAABEIBJmzcUvo44advWuq57Nqztuo62bS2o5dqrZ4yfS+0VcAN8A9ZAXdCnAn4At2P+8Dsze9J+DLwFHgp8jGN5D5wAy1JBNiY2JTYMQwLeAZd5+6QSH8BX4KMTwBfgg8PHBjgFvns0VVmUx9ZbZ0epo6PAcj5y+jjIY8OjqXpuRn4xO3WeFXNCIwDae5bVJatMt4AACIAACIAACMBTmLpX24r0/tsVUDmDIIDDgB9vH4tMqAUiwWPgUw5V14VC7oE7B/AN8AZ4DTwWfF8DK+AzcOvR5KrA/EGaeh5Iu8+jabdHk2sLzGaztMetFjqgvWN07Zn5fP4iB55rSesaFAABEAABEAAB2AmAvu8xs+L2NxOo0tb3/e4ALBaLqKrNnvq4x6hkyPscDTgLJDYXgcm8CPg582qKHIIPlJWrtu0x4MfbJ1FWR3zZf4QctUFdgwIgAAIgAAIgALu1KnDvrvEXRurA2Lx9bAzNPZqqwCOpOsfqnkdSqwCA1VaEV+JjM0LzaJr8MzmY+EPJSC6wbJrGhmFIzoJF0ce5+OL6YTMjj2npFaNrUAAEQAAEQAAEQAAEYKr2E+wKGw7DcK7oAAAAAElFTkSuQmCC" alt="Close modal"></button>
     <h1 class="title"><span slot="title">Wrong guess!</span></h1>
-    <div class="body"></div></dialog></div></div></div>
+    <div class="body"></div></dialog></div>
+    </div></div>
 
 <footer class="svelte-1ozqygl">Pokémon and All Respective Names are Trademark &amp; © of Nintendo 1996-2022.
 
@@ -72,10 +80,10 @@
 </footer>
 
 
-		<script type="module" data-sveltekit-hydrate="16nzgcm">
-		import { start } from "/_app/immutable/start-341bdc45.js";
+		<script type="module" data-sveltekit-hydrate="izn2cs">
+		import { start } from "/_app/immutable/start-a9a56e96.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="16nzgcm"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="izn2cs"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
