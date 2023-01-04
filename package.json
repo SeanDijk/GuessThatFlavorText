@@ -2,11 +2,11 @@
 	"name": "guessthatflavortext",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev --host",
 		"build-dev": "vite build && cp ./CNAME-DEV ./build/CNAME",
 		"build": "vite build && cp ./CNAME ./build/CNAME",
 		"package": "svelte-kit package",
-		"preview": "vite preview --open",
+		"preview": "vite preview --open --host",
 		"prepare": "svelte-kit sync",
 		"check": "svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",
