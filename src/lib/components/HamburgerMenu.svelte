@@ -31,15 +31,6 @@
         display: flex;
     }
 
-    @media only screen and (min-width: 768px) {
-        .icon-button {
-            height: 48px;
-            width: 48px;
-            font-size: .5em;
-            padding: 12px;
-        }
-    }
-
 </style>
 
 <div class="container">

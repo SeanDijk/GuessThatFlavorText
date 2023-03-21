@@ -1,14 +1,15 @@
 <script>
-    import {base} from '$app/paths';
-    import HamburgerMenu from "$lib/components/HamburgerMenu.svelte";
-    import {afterNavigate} from '$app/navigation';
-    import {fade} from 'svelte/transition';
+  import { base } from "$app/paths";
+  import HamburgerMenu from "$lib/components/HamburgerMenu.svelte";
+  import { afterNavigate } from "$app/navigation";
+  import { fade } from "svelte/transition";
+  import cog from "$lib/images/cog.png";
 
-    let hamburgerMenu
+  let hamburgerMenu;
 
-    afterNavigate(navigation => {
-        hamburgerMenu.close()
-    })
+  afterNavigate(navigation => {
+    hamburgerMenu.close();
+  });
 </script>
 <style>
     @import url('$lib/css/buttons.css');
@@ -92,31 +93,47 @@
         }
     }
 
+    .icon-button-container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .flex-filler {
+        flex-grow: 1;
+    }
 </style>
 <header>
-    <a href="{base}/" class="home">Guess That Flavor Text</a>
-    <div class="hamburger-menu">
-        <HamburgerMenu bind:this={hamburgerMenu}>
-            <div class="menu" transition:fade>
-                <a href="{base}/about" class="nav-link">About</a>
-                <a href="{base}/search" class="nav-link">Search a card</a>
-                <a href="{base}/guess/random" class="nav-link">Guess a random card</a>
-                <a href="{base}/settings" class="nav-link">Settings</a>
-                <a href="{base}/changelog" class="nav-link">Changelog</a>
-            </div>
-        </HamburgerMenu>
-    </div>
+  <a href="{base}/" class="home">Guess That Flavor Text</a>
+  <div class="flex-filler"></div>
+  <div class="icon-button-container"></div>
+  <a href="{base}/settings" class="icon-button">
+    <img src="{cog}" alt="Settings" />
+  </a>
+  <div class="hamburger-menu">
+    <HamburgerMenu bind:this={hamburgerMenu}>
+      <div class="menu" transition:fade>
+        <a href="{base}/about" class="nav-link">About</a>
+        <a href="{base}/search" class="nav-link">Search a card</a>
+        <a href="{base}/guess/random" class="nav-link">Guess a random card</a>
+        <a href="{base}/settings" class="nav-link">Settings</a>
+        <a href="{base}/changelog" class="nav-link">Changelog</a>
+      </div>
+    </HamburgerMenu>
+  </div>
 </header>
 
 <div class="content">
-    <slot></slot>
+  <slot></slot>
 </div>
 
 <footer>
-    Pokémon and All Respective Names are Trademark & © of Nintendo 1996-2022.
+  Pokémon and All Respective Names are Trademark & © of Nintendo 1996-2022.
 
-    This website is not produced by, endorsed by, supported by, or affiliated with Nintendo, The Pokémon Company
-    International, GAMEFREAK, or Uncommon Energy Podcast.
-    <br>
-    All other content © 2022 GuessThatFlavorText.
+  This website is not produced by, endorsed by, supported by, or affiliated with Nintendo, The Pokémon Company
+  International, GAMEFREAK, or Uncommon Energy Podcast.
+  <br>
+  All other content © 2022 GuessThatFlavorText.
 </footer>
