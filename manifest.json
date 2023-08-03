@@ -32,7 +32,7 @@
     "src": "src/lib/images/pokemon_diamond_button_1_active.png"
   },
   ".svelte-kit/runtime/client/start.js": {
-    "file": "_app/immutable/start-4e6ce09c.js",
+    "file": "_app/immutable/start-e85f4700.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -270,10 +270,6 @@
       "_PokemonApiService-8b675361.js"
     ]
   },
-  "src/routes/changelog.css": {
-    "file": "_app/immutable/assets/changelog-78dd6ea6.css",
-    "src": "src/routes/changelog.css"
-  },
   "src/routes/about.css": {
     "file": "_app/immutable/assets/about-8a7bf195.css",
     "src": "src/routes/about.css"
@@ -282,24 +278,28 @@
     "file": "_app/immutable/assets/__layout-cd5fea1c.css",
     "src": "src/routes/__layout.css"
   },
-  "CardGuess.css": {
-    "file": "_app/immutable/assets/CardGuess-ffb7c60e.css",
-    "src": "CardGuess.css"
-  },
-  "LoadingIcon.css": {
-    "file": "_app/immutable/assets/LoadingIcon-a6563f92.css",
-    "src": "LoadingIcon.css"
-  },
-  "src/routes/settings.css": {
-    "file": "_app/immutable/assets/settings-d4c6740f.css",
-    "src": "src/routes/settings.css"
+  "src/routes/changelog.css": {
+    "file": "_app/immutable/assets/changelog-78dd6ea6.css",
+    "src": "src/routes/changelog.css"
   },
   "src/routes/index.css": {
     "file": "_app/immutable/assets/index-7b6f9720.css",
     "src": "src/routes/index.css"
   },
+  "CardGuess.css": {
+    "file": "_app/immutable/assets/CardGuess-ffb7c60e.css",
+    "src": "CardGuess.css"
+  },
+  "src/routes/settings.css": {
+    "file": "_app/immutable/assets/settings-d4c6740f.css",
+    "src": "src/routes/settings.css"
+  },
   "src/routes/search.css": {
     "file": "_app/immutable/assets/search-3c413791.css",
     "src": "src/routes/search.css"
+  },
+  "LoadingIcon.css": {
+    "file": "_app/immutable/assets/LoadingIcon-a6563f92.css",
+    "src": "LoadingIcon.css"
   }
 }
