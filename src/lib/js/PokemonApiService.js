@@ -31,21 +31,13 @@ const PokemonApiService = {
     return (await pokemon.card.where(params)).data[0];
   },
 
-  getPage: async (pageNumber) => {
-    return pokemon.card.where({
-      q: "flavorText:*",
-      pageSize: 10,
-      page: pageNumber
-    });
-  },
-
   getCard: async (cardId) => {
     return pokemon.card.find(cardId);
   },
 
   getCardPage: async (params) => {
 
-    let q = "";
+    let q = "supertype:Pokemon ";
 
     function appendQ(str) {
       q = q + str + " ";
